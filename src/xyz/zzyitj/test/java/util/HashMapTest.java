@@ -12,11 +12,12 @@ import java.util.Map;
 public class HashMapTest {
     public static void main(String[] args) {
         Map<String, String> map = new HashMap<>();
-        map.put("key1", "value1");
-        map.put("key2", "value2");
-        map.put("key3", "value3");
+        for (int i = 0; i < 100; i++) {
+            map.put("key" + i, "value" + i);
+        }
         map.remove("key1");
         map.remove("key2");
         map.remove("key3");
+        map.replace("key1", "value1");
     }
 }

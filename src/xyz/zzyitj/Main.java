@@ -8,7 +8,7 @@ public class Main {
         System.out.println((1 << 30));
         System.out.println(((1 << 31) - 1));
         System.out.println(Integer.MAX_VALUE);
-        test();
+        System.out.println(15 & 3288448);
     }
 
     public static String test(){

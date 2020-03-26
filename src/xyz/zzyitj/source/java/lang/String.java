@@ -977,16 +977,16 @@ public final class String
         if (this == anObject) {
             return true;
         }
-        if (anObject instanceof String) {
+        if (anObject instanceof String) {// 如果不是String类直接返回false
             String anotherString = (String)anObject;
             int n = value.length;
-            if (n == anotherString.value.length) {
+            if (n == anotherString.value.length) {// 判断当前的String length和要比较的String length是否相等
                 char v1[] = value;
                 char v2[] = anotherString.value;
                 int i = 0;
                 while (n-- != 0) {
                     if (v1[i] != v2[i])
-                        return false;
+                        return false;// 判断当前的String char和要比较的String char是否相等，不相等直接返回false
                     i++;
                 }
                 return true;

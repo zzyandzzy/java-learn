@@ -240,7 +240,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<30.
      */
-    static final int MAXIMUM_CAPACITY = 1 << 30;// 为啥是1 << 30不是1 << 32 ???
+    static final int MAXIMUM_CAPACITY = 1 << 30;// 为啥是1 << 30不是1 << 32
 
     /**
      * The load factor used when none specified in constructor.
@@ -375,7 +375,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     /**
      * Returns a power of two size for the given target capacity.
      */
-    static final int tableSizeFor(int cap) {
+    static final int tableSizeFor(int cap) {//如果自己传入初始大小k，初始化大小为大于k的 2的整数次方，例如如果传10，大小为16。
         int n = cap - 1;
         n |= n >>> 1;
         n |= n >>> 2;
@@ -413,7 +413,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * rehash).  This field is used to make iterators on Collection-views of
      * the HashMap fail-fast.  (See ConcurrentModificationException).
      */
-    transient int modCount;
+    transient int modCount;// HashMap结构上被修改的次数
 
     /**
      * The next size value at which to resize (capacity * load factor).
@@ -627,14 +627,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         Node<K,V>[] tab; Node<K,V> p; int n, i;
         if ((tab = table) == null || (n = tab.length) == 0)// 判断当前的table是否为null或者长度是否为0
             n = (tab = resize()).length;// 进入resize()函数初始化table
-        if ((p = tab[i = (n - 1) & hash]) == null)
-            tab[i] = newNode(hash, key, value, null);
-        else {
+        if ((p = tab[i = (n - 1) & hash]) == null)// 计算存储位置，判断位置是否存在数据
+            tab[i] = newNode(hash, key, value, null);// new一个节点
+        else {// 要存储的位置已经有数据了
             Node<K,V> e; K k;
-            if (p.hash == hash &&
+            if (p.hash == hash &&// 如果头节点的hash，key和当前插入的hash，key相等
                 ((k = p.key) == key || (key != null && key.equals(k))))
                 e = p;
-            else if (p instanceof TreeNode)
+            else if (p instanceof TreeNode)// 判断数组当前节点是否为红黑树节点
                 e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
             else {
                 for (int binCount = 0; ; ++binCount) {
@@ -652,14 +652,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             }
             if (e != null) { // existing mapping for key
                 V oldValue = e.value;
-                if (!onlyIfAbsent || oldValue == null)
-                    e.value = value;
+                if (!onlyIfAbsent || oldValue == null)// 如果允许覆盖旧值或者旧值本来就为null
+                    e.value = value;// 覆盖掉原来的值
                 afterNodeAccess(e);
-                return oldValue;
+                return oldValue;// 返回旧值
             }
         }
-        ++modCount;
-        if (++size > threshold)
+        ++modCount;// HashMap在结构上被修改的次数++
+        if (++size > threshold)// 插入节点后，当前的size刚好达到扩容标准threshold
             resize();
         afterNodeInsertion(evict);
         return null;
@@ -684,8 +684,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                 threshold = Integer.MAX_VALUE;// 令下一次调整大小为Integer.MAX_VALUE(即(1 << 31) - 1), 这里说明 - 运算符比 << 运算符优先级高)
                 return oldTab;
             }
-            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
-                     oldCap >= DEFAULT_INITIAL_CAPACITY)
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&// 这里令新表长度为旧表的2倍，oldCap << 1
+                     oldCap >= DEFAULT_INITIAL_CAPACITY)// 这里为啥要判断>=DEFAULT_INITIAL_CAPACITY ???
                 newThr = oldThr << 1; // double threshold
         }
         else if (oldThr > 0) // initial capacity was placed in threshold
@@ -701,24 +701,24 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         }
         threshold = newThr;
         @SuppressWarnings({"rawtypes","unchecked"})
-        Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];// 这里才是真正的初始化数组大小为newCap
+        Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];// 初始化数组大小为newCap
         table = newTab;// 设置当前的table为newTable，空表
         if (oldTab != null) {// 如果原来的表有数据，则拷贝数据，否则直接返回newTab
-            for (int j = 0; j < oldCap; ++j) {
+            for (int j = 0; j < oldCap; ++j) {// 循环拷贝数据
                 Node<K,V> e;
-                if ((e = oldTab[j]) != null) {
+                if ((e = oldTab[j]) != null) {// 判断原来的表中是否有空节点，有则跳出本次循环
                     oldTab[j] = null;
-                    if (e.next == null)
-                        newTab[e.hash & (newCap - 1)] = e;
+                    if (e.next == null)// 深度为1的节点，表中当前位置只有一个节点
+                        newTab[e.hash & (newCap - 1)] = e;// 计算旧节点在新表中的存储位置，hash & 新表长度 - 1
                     else if (e instanceof TreeNode)
                         ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
-                    else { // preserve order
+                    else { // preserve order，维护秩序，深度大于1并且不是TreeNode的链表
                         Node<K,V> loHead = null, loTail = null;
                         Node<K,V> hiHead = null, hiTail = null;
                         Node<K,V> next;
-                        do {
+                        do {// 尾插法插入节点
                             next = e.next;
-                            if ((e.hash & oldCap) == 0) {
+                            if ((e.hash & oldCap) == 0) {// 头结点
                                 if (loTail == null)
                                     loHead = e;
                                 else
