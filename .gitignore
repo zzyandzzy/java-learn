@@ -1,0 +1,17 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.orig
+*.iml
+/netty-http-client/target/
+/netty-http-test-harness/target/
+/netty-http-client-tests/target/
+/netty-http-client/nbproject/
+/tiny-http-server/target/
+target/
+out/
+.idea/
+.DS_Store
