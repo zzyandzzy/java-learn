@@ -270,7 +270,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Should be at least 4 * TREEIFY_THRESHOLD to avoid conflicts
      * between resizing and treeification thresholds.
      */
-    static final int MIN_TREEIFY_CAPACITY = 64;
+    static final int MIN_TREEIFY_CAPACITY = 64;// 链表长度大于8但是当前桶长度小于64的时候只扩容
 
     /**
      * Basic hash bin node, used for most entries.  (See below for
@@ -404,7 +404,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     /**
      * The number of key-value mappings contained in this map.
      */
-    transient int size;
+    transient int size;// 当前表的大小
 
     /**
      * The number of times this HashMap has been structurally modified
@@ -444,7 +444,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * @throws IllegalArgumentException if the initial capacity is negative
      *         or the load factor is nonpositive
      */
-    public HashMap(int initialCapacity, float loadFactor) {
+    public HashMap(int initialCapacity, float loadFactor) {// 设置容器大小和负载因子
         if (initialCapacity < 0)
             throw new IllegalArgumentException("Illegal initial capacity: " +
                                                initialCapacity);
@@ -454,7 +454,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             throw new IllegalArgumentException("Illegal load factor: " +
                                                loadFactor);
         this.loadFactor = loadFactor;
-        this.threshold = tableSizeFor(initialCapacity);
+        this.threshold = tableSizeFor(initialCapacity);// 保证下一次扩容始终为设置的容器大小最接近的2的倍数，比如设置50，那么最接近的就是64
     }
 
     /**
@@ -464,7 +464,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * @param  initialCapacity the initial capacity.
      * @throws IllegalArgumentException if the initial capacity is negative.
      */
-    public HashMap(int initialCapacity) {
+    public HashMap(int initialCapacity) {// 设置容器大小默认负载因子
         this(initialCapacity, DEFAULT_LOAD_FACTOR);
     }
 
@@ -628,7 +628,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         if ((tab = table) == null || (n = tab.length) == 0)// 判断当前的table是否为null或者长度是否为0
             n = (tab = resize()).length;// 进入resize()函数初始化table
         if ((p = tab[i = (n - 1) & hash]) == null)// 计算存储位置，判断位置是否存在数据
-            tab[i] = newNode(hash, key, value, null);// new一个节点
+            tab[i] = newNode(hash, key, value, null);// new一个节点，key和value可以为null
         else {// 要存储的位置已经有数据了
             Node<K,V> e; K k;
             if (p.hash == hash &&// 如果头节点的hash，key和当前插入的hash，key相等
@@ -636,12 +636,12 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                 e = p;
             else if (p instanceof TreeNode)// 判断数组当前节点是否为红黑树节点
                 e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
-            else {
+            else {// 插入链表
                 for (int binCount = 0; ; ++binCount) {
                     if ((e = p.next) == null) {
                         p.next = newNode(hash, key, value, null);
-                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
-                            treeifyBin(tab, hash);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st, 节点数大于8则转换为红黑树
+                            treeifyBin(tab, hash);// 其实是第九个节点进行树化，下标从0开始，新添加的节点后此次循环中计算器未加一
                         break;
                     }
                     if (e.hash == hash &&
@@ -754,9 +754,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      */
     final void treeifyBin(Node<K,V>[] tab, int hash) {
         int n, index; Node<K,V> e;
-        if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)
+        if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)// 链表长度大于8但是当前桶长度小于64的时候只扩容
             resize();
-        else if ((e = tab[index = (n - 1) & hash]) != null) {
+        else if ((e = tab[index = (n - 1) & hash]) != null) {// 链表长度大于8并且桶长度大于等于64的时候才转换为红黑树
             TreeNode<K,V> hd = null, tl = null;
             do {
                 TreeNode<K,V> p = replacementTreeNode(e, null);
@@ -814,19 +814,19 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                                boolean matchValue, boolean movable) {
         Node<K,V>[] tab; Node<K,V> p; int n, index;
         if ((tab = table) != null && (n = tab.length) > 0 &&
-            (p = tab[index = (n - 1) & hash]) != null) {
-            Node<K,V> node = null, e; K k; V v;
-            if (p.hash == hash &&
+            (p = tab[index = (n - 1) & hash]) != null) {// 判断当前的表和当前根据hash算法得到的位置的数据不为null
+            Node<K,V> node = null, e; K k; V v;// node存放要删除的节点，e表示下一个节点，k存放要删除节点的key，v存放要删除节点的value
+            if (p.hash == hash &&// 要删除的节点是头结点
                 ((k = p.key) == key || (key != null && key.equals(k))))
                 node = p;
-            else if ((e = p.next) != null) {
-                if (p instanceof TreeNode)
+            else if ((e = p.next) != null) {// 要删除的节点不是头节点，则要跟下去一个一个的查找
+                if (p instanceof TreeNode)// 如果是红黑树
                     node = ((TreeNode<K,V>)p).getTreeNode(hash, key);
-                else {
+                else {// 要删除的节点不是头结点也不是红黑树，说明是链表并且节点数小于8
                     do {
-                        if (e.hash == hash &&
+                        if (e.hash == hash &&// 判断当前e节点是否是要删除的节点
                             ((k = e.key) == key ||
-                             (key != null && key.equals(k)))) {
+                             (key != null && key.equals(k)))) {// key不能为null
                             node = e;
                             break;
                         }
