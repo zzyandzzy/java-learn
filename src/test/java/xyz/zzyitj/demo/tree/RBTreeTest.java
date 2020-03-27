@@ -19,20 +19,9 @@ class RBTreeTest {
         RBTree.RBTNode<Integer> y = new RBTree.RBTNode<>(120, false, rbTree.mRoot, null, null);
         rbTree.mRoot.left = x;
         rbTree.mRoot.right = y;
-        print(rbTree.mRoot);
+        rbTree.print();
+        System.out.println("左旋,预期 120 80 40");
         rbTree.leftRotate(rbTree.mRoot);
-        print(rbTree.mRoot);
-    }
-
-    private void print(RBTree.RBTNode<Integer> mRoot) {
-        RBTree.RBTNode<Integer> l = mRoot.left, r = mRoot.right;
-        while (l != null) {
-            System.out.println("l: " + l.key);
-            l = l.left;
-        }
-        while (r != null) {
-            System.out.println("r: " + r.key);
-            r = r.right;
-        }
+        rbTree.print();
     }
 }

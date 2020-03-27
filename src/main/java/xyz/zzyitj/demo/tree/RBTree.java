@@ -112,4 +112,31 @@ public class RBTree<T extends Comparable<T>> {
         // 将 “y的父节点” 设为 “x”
         y.parent = x;
     }
+
+    private boolean isRed(RBTNode<T> node) {
+        return (node != null) && (node.color == RED);
+    }
+
+    private boolean isBlack(RBTNode<T> node) {
+        return !isRed(node);
+    }
+
+    public void print(RBTNode<T> tree, T key, int direction) {
+
+        if (tree != null) {
+
+            if (direction == 0)    // tree是根节点
+                System.out.printf("%2d(B) is root\n", tree.key);
+            else                // tree是分支节点
+                System.out.printf("%2d(%s) is %2d's %6s child\n", tree.key, isRed(tree) ? "R" : "B", key, direction == 1 ? "right" : "left");
+
+            print(tree.left, tree.key, -1);
+            print(tree.right, tree.key, 1);
+        }
+    }
+
+    public void print() {
+        if (mRoot != null)
+            print(mRoot, mRoot.key, 0);
+    }
 }
