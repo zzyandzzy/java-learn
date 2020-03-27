@@ -3,10 +3,11 @@ package xyz.zzyitj.demo.tree;
 import org.junit.Test;
 
 /**
- * @author intent
- * @version 1.0
+ * xyz.zzyitj.java.util
+ *
+ * @author intent zzy.main@gmail.com
  * @date 2020/3/27 3:52 下午
- * @email zzy.main@gmail.com
+ * @since 1.0
  */
 public class RBTreeTest {
     @Test

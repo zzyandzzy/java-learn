@@ -2316,7 +2316,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
 
     /**
      * Tries to presize table to accommodate the given number of elements.
-     *
+     * 尝试预先调整表的大小以容纳给定数量的元素。扩容函数
      * @param size number of elements (doesn't need to be perfectly accurate)
      */
     private final void tryPresize(int size) {
@@ -2327,7 +2327,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
             Node<K,V>[] tab = table; int n;
             if (tab == null || (n = tab.length) == 0) {
                 n = (sc > c) ? sc : c;
-                if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {
+                if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {// cas操作
                     try {
                         if (table == tab) {
                             @SuppressWarnings("unchecked")

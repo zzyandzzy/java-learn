@@ -375,7 +375,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     /**
      * Returns a power of two size for the given target capacity.
      */
-    static final int tableSizeFor(int cap) {//如果自己传入初始大小k，初始化大小为大于k的 2的整数次方，例如如果传10，大小为16。
+    static final int tableSizeFor(int cap) {//如果自己传入初始大小k，初始化大小为大于k的 2的整数次方，例如传10，大小为16。
         int n = cap - 1;
         n |= n >>> 1;
         n |= n >>> 2;
@@ -695,7 +695,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);// newThr初始化为16 * 0.75f = 12
         }
         if (newThr == 0) {
-            float ft = (float)newCap * loadFactor;
+            float ft = (float)newCap * loadFactor;// 根据容器大小/负载因子算出要扩容的大小
             newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
                       (int)ft : Integer.MAX_VALUE);
         }
