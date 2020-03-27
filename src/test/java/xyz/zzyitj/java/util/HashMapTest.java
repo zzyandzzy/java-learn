@@ -1,12 +1,11 @@
 package xyz.zzyitj.java.util;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author intent
@@ -14,24 +13,36 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2020/3/27 3:53 下午
  * @email zzy.main@gmail.com
  */
-class HashMapTest {
-    Map<String, String> map = new HashMap<>();
+public class HashMapTest {
+    Map<String, String> map;
 
+    @Before
+    public void initHashMap() {
+        map = new HashMap<>();
+    }
+
+    /**
+     * 测试put操作链表深度大于9但是不转为红黑树只扩容
+     * 测试put操作链表深度大于9转为红黑树
+     */
     @Test
-    public void test() {
-        for (int i = 0; i < 100000; i++) {
-            map.put("key" + i, "value" + i);
+    public void testPutTreeifyBinResize() {
+        for (int i = 0; i < 1000; i++) {
+            String key = "key" + i;
+            int h;
+            h = (h = key.hashCode()) ^ (h >>> 16);
+            if ((h & 15) == 0) {
+                map.put(key, "value1");
+            }
         }
-        map.remove("key1");
-        map.replace("key1", "value1");
     }
 
     @Test
     public void testNull() {
         // key可以是null
         map.put(null, "aaa");
-        System.out.printf("%s", map.get(null));
+        System.out.printf("%s\n", map.get(null));
         map.remove(null);
-        System.out.printf("%s", map.get(null));
+        System.out.printf("%s\n", map.get(null));
     }
 }

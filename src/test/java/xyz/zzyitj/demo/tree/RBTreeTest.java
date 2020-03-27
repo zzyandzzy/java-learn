@@ -1,8 +1,6 @@
 package xyz.zzyitj.demo.tree;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
 /**
  * @author intent
@@ -10,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2020/3/27 3:52 下午
  * @email zzy.main@gmail.com
  */
-class RBTreeTest {
+public class RBTreeTest {
     @Test
     public void test() {
         RBTree<Integer> rbTree = new RBTree<>();
