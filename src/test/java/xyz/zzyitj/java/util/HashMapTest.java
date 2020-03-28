@@ -15,7 +15,7 @@ import java.util.Map;
  * 2：hashCode异或的用意？
  * 分析流程：
  * 1：构造函数分析{@link #testConstructor()}
- * 2: 插入分析<a href="流程图/util/HashMap/插入流程图.png">HashMap插入流程图</a>
+ * 2: 插入分析<a href="流程图/util/HashMap/HashMap插入流程图.png">HashMap插入流程图</a>
  * 3：删除分析
  * 4：替换分析
  * 5：查询分析
