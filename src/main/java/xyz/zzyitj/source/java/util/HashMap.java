@@ -718,14 +718,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                         Node<K,V> next;
                         do {// 尾插法插入节点
                             next = e.next;
-                            if ((e.hash & oldCap) == 0) {// 头结点
+                            if ((e.hash & oldCap) == 0) {// 扩容后数据位置没变
                                 if (loTail == null)
                                     loHead = e;
                                 else
                                     loTail.next = e;
                                 loTail = e;
                             }
-                            else {
+                            else {// 扩容后数据位置比原来大了oldCap
                                 if (hiTail == null)
                                     hiHead = e;
                                 else
@@ -739,7 +739,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                         }
                         if (hiTail != null) {
                             hiTail.next = null;
-                            newTab[j + oldCap] = hiHead;
+                            newTab[j + oldCap] = hiHead;// 扩容后数据位置比原来大了oldCap
                         }
                     }
                 }
