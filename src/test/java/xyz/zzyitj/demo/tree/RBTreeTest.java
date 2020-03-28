@@ -10,9 +10,42 @@ import org.junit.Test;
  * @since 1.0
  */
 public class RBTreeTest {
+    RBTree<String, String> tree = new RBTree<>();
+
+    @Test
+    public void testRemove() {
+        tree.put("key1", "value1");
+        tree.put("key2", "value2");
+        tree.put("key3", "value3");
+        System.out.println(tree.get("key1"));
+        TreeOperation.show(tree.getRoot());
+        tree.remove("key1");
+        System.out.println(tree.get("key1"));
+        TreeOperation.show(tree.getRoot());
+    }
+
+    @Test
+    public void testReplace() {
+        tree.put("key1", "value1");
+        tree.put("key2", "value2");
+        tree.put("key3", "value3");
+        // 替换key1
+        System.out.println(tree.get("key1"));
+        tree.replace("key1", "value2");
+        System.out.println(tree.get("key1"));
+    }
+
+    @Test
+    public void testGet() {
+        tree.put("key1", "value1");
+        tree.put("key2", "value2");
+        tree.put("key3", "value3");
+        System.out.println(tree.get("key1"));
+        TreeOperation.show(tree.getRoot());
+    }
+
     @Test
     public void testPut() {
-        RBTree<String, String> tree = new RBTree<>();
         for (int i = 0; i < 10; i++) {
             tree.put(String.valueOf(i), null);
         }
