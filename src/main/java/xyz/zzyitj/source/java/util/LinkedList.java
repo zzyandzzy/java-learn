@@ -138,15 +138,15 @@ public class LinkedList<E>
      * Links e as last element.
      */
     void linkLast(E e) {
-        final Node<E> l = last;
-        final Node<E> newNode = new Node<>(l, e, null);
-        last = newNode;
-        if (l == null)
-            first = newNode;
+        final Node<E> l = last; // 存放尾节点
+        final Node<E> newNode = new Node<>(l, e, null);// 新建节点
+        last = newNode;// 令当前尾节点等于新节点
+        if (l == null)// 如果尾节点为null，链表为存放值情况
+            first = newNode;// 头节点就等于新节点
         else
-            l.next = newNode;
-        size++;
-        modCount++;
+            l.next = newNode;// 尾节点的下一个节点就位新节点
+        size++;// 大小+1
+        modCount++;// 修改次数+1
     }
 
     /**
@@ -403,7 +403,7 @@ public class LinkedList<E>
      * @throws NullPointerException if the specified collection is null
      */
     public boolean addAll(int index, Collection<? extends E> c) {
-        checkPositionIndex(index);
+        checkPositionIndex(index);// 检查index是否超出链表的范围
 
         Object[] a = c.toArray();
         int numNew = a.length;
@@ -566,7 +566,7 @@ public class LinkedList<E>
     Node<E> node(int index) {
         // assert isElementIndex(index);
 
-        if (index < (size >> 1)) {
+        if (index < (size >> 1)) {// 优化点，把要查找的下标和当前链表大小的一半对比，是从头结点开始查找还是从尾节点开始查找，节省1/2的时间
             Node<E> x = first;
             for (int i = 0; i < index; i++)
                 x = x.next;
