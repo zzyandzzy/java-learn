@@ -34,6 +34,7 @@
     - [插入流程图](./流程图/util/HashMap/插入流程图.png)
     - [LinkedHashMap](./src/main/java/xyz/zzyitj/source/java/util/LinkedHashMap.java)
   - [TreeMap](./src/main/java/xyz/zzyitj/source/java/util/TreeMap.java)
+    - [测试用例](./src/test/java/xyz/zzyitj/java/util/TreeMapTest.java)
   
 ## concurrent
 

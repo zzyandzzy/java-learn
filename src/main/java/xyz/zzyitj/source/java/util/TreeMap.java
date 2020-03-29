@@ -2255,7 +2255,7 @@ public class TreeMap<K,V>
 
     /** From CLR */
     private void fixAfterInsertion(Entry<K,V> x) {
-        x.color = RED;
+        x.color = RED;// 红黑树插入节点必须为红色
 
         while (x != null && x != root && x.parent.color == RED) {
             if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
