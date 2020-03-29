@@ -211,7 +211,7 @@ public class Collections {
      */
     public static <T>
     int binarySearch(List<? extends Comparable<? super T>> list, T key) {
-        if (list instanceof RandomAccess || list.size()<BINARYSEARCH_THRESHOLD)
+        if (list instanceof RandomAccess || list.size()<BINARYSEARCH_THRESHOLD)// 判断类有没有RandomAccess接口从而决定是否要使用迭代器
             return Collections.indexedBinarySearch(list, key);
         else
             return Collections.iteratorBinarySearch(list, key);
@@ -242,7 +242,7 @@ public class Collections {
     {
         int low = 0;
         int high = list.size()-1;
-        ListIterator<? extends Comparable<? super T>> i = list.listIterator();
+        ListIterator<? extends Comparable<? super T>> i = list.listIterator();// 有RandomAccess接口多了这一行
 
         while (low <= high) {
             int mid = (low + high) >>> 1;

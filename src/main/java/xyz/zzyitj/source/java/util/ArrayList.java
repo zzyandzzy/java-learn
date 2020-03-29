@@ -221,8 +221,8 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     private static int calculateCapacity(Object[] elementData, int minCapacity) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
-            return Math.max(DEFAULT_CAPACITY, minCapacity);
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {// 判断当前数组是否为空
+            return Math.max(DEFAULT_CAPACITY, minCapacity);// 为空直接赋值给初始值，10
         }
         return minCapacity;
     }
@@ -235,7 +235,7 @@ public class ArrayList<E> extends AbstractList<E>
         modCount++;
 
         // overflow-conscious code
-        if (minCapacity - elementData.length > 0)
+        if (minCapacity - elementData.length > 0)// 确保当前的容量小于要扩容的容量，你当前的容量本来就大于要扩容的容量你扩容个毛
             grow(minCapacity);
     }
 
@@ -256,10 +256,10 @@ public class ArrayList<E> extends AbstractList<E>
     private void grow(int minCapacity) {
         // overflow-conscious code
         int oldCapacity = elementData.length;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-        if (newCapacity - minCapacity < 0)
-            newCapacity = minCapacity;
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
+        int newCapacity = oldCapacity + (oldCapacity >> 1);// 增加了0.5倍
+        if (newCapacity - minCapacity < 0)// 如果计算的扩容大小（newCapacity）小于计划要扩容的大小（minCapacity），比如初始化的情况
+            newCapacity = minCapacity;// 那么令newCapacity计划要扩容的大小（minCapacity）
+        if (newCapacity - MAX_ARRAY_SIZE > 0)// 检查是否超出最大大小
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
         elementData = Arrays.copyOf(elementData, newCapacity);
