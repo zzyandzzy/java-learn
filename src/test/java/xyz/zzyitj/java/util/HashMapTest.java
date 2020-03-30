@@ -3,6 +3,7 @@ package xyz.zzyitj.java.util;
 
 import org.junit.Before;
 import org.junit.Test;
+import xyz.zzyitj.demo.tree.RBTree;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
  * <p>
  * 未解决疑问：
  * 1：为什么在插入的时候使用尾插法？
+ * 目前了解到的资料是说尾插法可以防止多线程插入时出现循环链表的问题。
  * <p>
  * 已解决：
  * 1.hashCode算法：
@@ -23,9 +25,12 @@ import java.util.Map;
  * 分析流程：
  * 1：构造函数分析{@link #testConstructor()}
  * 2: 插入分析<a href="流程图/util/HashMap/HashMap插入流程图.png">HashMap插入流程图</a>
- * 3：删除分析
- * 4：替换分析
- * 5：查询分析
+ * 3：删除分析 {@link HashMap#removeNode(int, Object, Object, boolean, boolean)}
+ * 如果是树，看{@link RBTree#remove(Comparable)}
+ * 4：替换分析 查找到相同的值直接替换
+ * 5：查询分析 如果是链表，直接循环整个链表查询
+ * 如果是树，二叉搜索树二分查找{@link HashMap.TreeNode#find(int, Object, Class)}
+ * {@link xyz.zzyitj.demo.tree.RBTree#search(RBTree.RBTNode, Comparable)}
  * 6：扩容分析 {@link #testResize()}
  * 7：红黑树 {@link xyz.zzyitj.demo.tree.RBTree}
  *

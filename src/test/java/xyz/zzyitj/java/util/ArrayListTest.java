@@ -3,10 +3,7 @@ package xyz.zzyitj.java.util;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * xyz.zzyitj.java.util
@@ -112,5 +109,59 @@ public class ArrayListTest {
         list.add("value2");
         list.add("value3");
         list.add("value4");
+    }
+
+    /**
+     * {@link ArrayList#remove(Object)}
+     * ArrayList的删除问题
+     */
+    @Test
+    public void testRemove() {
+        list.add("AA");
+        list.add("BBB");
+        list.add("CCCC");
+        list.add("DDDD");
+        list.add("EEE");
+        /**
+         * 输出结果为：AA,BBB,DDDD,EEE
+         * 错误之处：DDDD元素竟然没有删除掉。
+         * 这是因为：
+         * {@link ArrayList#remove(int)}
+         * 里面的System.arraycopy方法是将该元素从数组中删除，并且将后一个元素移动至当前位置，
+         * 导致下一次循环遍历时后一个字符串并没有遍历到，所以无法删除。
+         * 解决办法：倒序删除
+         *         for (int i = list.size() - 1; i >= 0; i--) {
+         *             if (list.get(i).length() == 4) {
+         *                 list.remove(i);
+         *             }
+         *         }
+         */
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).length() == 4) {
+                list.remove(i);
+            }
+        }
+        /**
+         * 下面的代码报ConcurrentModificationException
+         * for (String s : list) {
+         *             if (s.equals("BBB")) {
+         *                 list.remove(s);
+         *             }
+         *         }
+         * 原因是因为{@link ArrayList#fastRemove(int)}第一行修改了modCount
+         * 而在ArrayList的父类{@link AbstractList#iterator()}里面调用了
+         * {@link AbstractList.Itr#checkForComodification()}判断modCount是否被修改了，修改了就抛出异常
+         * 要避免这种情况的出现则在使用迭代器迭代时（显示或for-each的隐式）不要使用ArrayList的remove，改为用Iterator的remove即可。
+         *      Iterator<String> iterator = list.iterator();
+         *         while (iterator.hasNext()){
+         *             String s = iterator.next();
+         *             if (s.equals("BBB")) {
+         *                 iterator.remove();
+         *             }
+         *         }
+         */
+        for (String s : list) {
+            System.out.println("element : " + s);
+        }
     }
 }
