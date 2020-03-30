@@ -96,7 +96,7 @@ public class HashSet<E>
     private transient HashMap<E,Object> map;
 
     // Dummy value to associate with an Object in the backing Map
-    private static final Object PRESENT = new Object();
+    private static final Object PRESENT = new Object();// 作为HashMap的值
 
     /**
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has

@@ -25,8 +25,11 @@
       - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedListTest.java)
   - Set
     - [HashSet](./src/main/java/xyz/zzyitj/source/java/util/HashSet.java)
+      - [测试用例](./src/test/java/xyz/zzyitj/java/util/HashSetTest.java)
       - [LinkedHashSet](./src/main/java/xyz/zzyitj/source/java/util/LinkedHashSet.java)
+        - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedHashSetTest.java)
     - [TreeSet](./src/main/java/xyz/zzyitj/source/java/util/TreeSet.java)
+      - [测试用例](./src/test/java/xyz/zzyitj/java/util/TreeSetTest.java)
   
 - Map
   - [HashMap](./src/main/java/xyz/zzyitj/source/java/util/HashMap.java)
