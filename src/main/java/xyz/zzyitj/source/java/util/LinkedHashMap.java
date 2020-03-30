@@ -295,8 +295,8 @@ public class LinkedHashMap<K,V>
     }
 
     void afterNodeInsertion(boolean evict) { // possibly remove eldest
-        LinkedHashMap.Entry<K,V> first;
-        if (evict && (first = head) != null && removeEldestEntry(first)) {
+        LinkedHashMap.Entry<K,V> first;// 这个函数可以继承LinkedHashMap重载removeEldestEntry函数实现删除旧的数据
+        if (evict && (first = head) != null && removeEldestEntry(first)) {// removeEldestEntry一般返回false，可以继承LinkedHashMap重写removeEldestEntry返回true
             K key = first.key;
             removeNode(hash(key), key, null, false, true);
         }
@@ -304,23 +304,23 @@ public class LinkedHashMap<K,V>
 
     void afterNodeAccess(Node<K,V> e) { // move node to last
         LinkedHashMap.Entry<K,V> last;
-        if (accessOrder && (last = tail) != e) {
+        if (accessOrder && (last = tail) != e) {// 令last等于尾节点
             LinkedHashMap.Entry<K,V> p =
-                (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
-            p.after = null;
-            if (b == null)
-                head = a;
-            else
-                b.after = a;
-            if (a != null)
-                a.before = b;
-            else
-                last = b;
-            if (last == null)
-                head = p;
-            else {
-                p.before = last;
-                last.after = p;
+                (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;// b是插入节点的前一个节点，a是插入节点的后一个节点
+            p.after = null;// 令插入节点的后一个节点为null，防止循环
+            if (b == null)// 如果插入节点的前一个节点为null
+                head = a;// 则头结点等于插入节点的后一个节点
+            else// 如果插入节点的前一个节点不为null，b<----p---->a
+                b.after = a;// 则令插入节点的前一个节点的后继节点等于插入节点的后一个节点，b---->a
+            if (a != null)// 如果插入节点的后一个节点不为null，b<----p---->a---->x
+                a.before = b;// 则令插入节点的后一个节点的前继节点等于插入节点的前一个节点，b<----a---->x
+            else// 如果插入节点的后一个节点为null
+                last = b;// lash等于插入节点的前一个节点
+            if (last == null)// 如果插入节点的前一个节点为null
+                head = p;// 头节点就等于插入节点
+            else {// 如果插入节点的前一个节点不为null
+                p.before = last;// 则插入节点的前继节点等于插入节点的前一个节点
+                last.after = p;// 插入节点的前一个节点的后继节点等于插入节点，就是互相建立关系
             }
             tail = p;
             ++modCount;

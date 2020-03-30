@@ -27,6 +27,7 @@ public class LinkedListTest {
     }
 
     /**
+     * {@link LinkedList#remove(int)}
      * 双向链表的断开
      * <p>
      * head头结点
