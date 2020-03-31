@@ -679,15 +679,15 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
      * collisions in bins, we just XOR some shifted bits in the
      * cheapest possible way to reduce systematic lossage, as well as
      * to incorporate impact of the highest bits that would otherwise
-     * never be used in index calculations because of table bounds.
+     * never be used in index calculations because of table bounds.参考{@link HashMap#hash(Object)} {@link Hashtable#put(Object, Object)}
      */
-    static final int spread(int h) {
+    static final int spread(int h) {// 怎么感觉有点像HashMap和Hashtable的结合体？？？
         return (h ^ (h >>> 16)) & HASH_BITS;
     }
 
     /**
      * Returns a power of two table size for the given desired capacity.
-     * See Hackers Delight, sec 3.2
+     * See Hackers Delight, sec 3.2，参考{@link HashMap#tableSizeFor(int)}
      */
     private static final int tableSizeFor(int c) {
         int n = c - 1;
