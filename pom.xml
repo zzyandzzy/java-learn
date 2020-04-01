@@ -8,7 +8,12 @@
     <artifactId>jdk-source</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-
+<!--        打印对象布局-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.9</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
