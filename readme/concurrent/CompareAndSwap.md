@@ -1,7 +1,13 @@
+# 轻量级锁CAS
+- [对象布局](./ObjectLayout.md)
+- [volatile关键字](./Volatile.md)
+- [synchronized关键字](./Synchronized.md)
+- [锁升级](./LockUpgrade.md)
+
 # 资料
 - [流程图](../../其他/concurrent/cas流程图.png)
 - [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/CompareAndSwapTest.java)
-- [锁优点和缺点](../../其他/concurrent/锁的优点和缺点.png)
+- [锁优点和缺点图](../../其他/concurrent/锁的优点和缺点.png)
 
 锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
 锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
@@ -76,3 +82,11 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
     1、CPU开销较大，多线程反复尝试更新某一个变量的时候容易出现；
     2、不能保证代码块的原子性，只能保证变量的原子性操作；
     3、ABA问题。
+    
+# synchronized VS CAS
+
+在高可用，高耗时的环境下，synchronized效率更高
+在低可用，低耗时的环境下，cas效率更高
+
+synchronized升级到重量级锁后会进入一个等待队列（不消耗CPU）
+CAS在等待期间是消耗CPU的

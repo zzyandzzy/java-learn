@@ -4,8 +4,7 @@
   - [红黑树](./readme/tree/RBTree.md)
     
 # 并发
-- [对象布局](./readme/concurrent/ObjectLayout.md)
-- [CAS](./readme/concurrent/CompareAndSwap.md)
+- [锁](./readme/concurrent/Lock.md)
 
 # lang
 - [String](./src/main/java/xyz/zzyitj/source/java/lang/String.java)
@@ -35,10 +34,7 @@
       - [测试用例](./src/test/java/xyz/zzyitj/java/util/TreeSetTest.java)
   
 - Map
-  - [HashMap](./src/main/java/xyz/zzyitj/source/java/util/HashMap.java)
-    - [热门问题](./readme/util/HashMap.md)
-    - [测试用例](./src/test/java/xyz/zzyitj/java/util/HashMapTest.java)
-    - [插入流程图](其他/util/HashMap/插入流程图.png)
+  - [HshMap](./readme/util/HashMap.md)
     - [LinkedHashMap](./src/main/java/xyz/zzyitj/source/java/util/LinkedHashMap.java)
       - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedHashMapTest.java)
       - [结构图](其他/util/LinkedHashMap/LinkedHashMap.png)

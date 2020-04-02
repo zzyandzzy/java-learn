@@ -1,6 +1,8 @@
 # 锁
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
+- [volatile关键字](./Volatile.md)
+- [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
 - [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
 

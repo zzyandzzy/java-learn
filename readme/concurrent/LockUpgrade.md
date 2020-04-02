@@ -1,4 +1,10 @@
-# 锁升级
+# 锁升级过程
+- [对象布局](./ObjectLayout.md)
+- [轻量级锁CAS](./CompareAndSwap.md)
+- [volatile关键字](./Volatile.md)
+- [synchronized关键字](./Synchronized.md)
+
+# 资料
 - [锁优点和缺点](../../其他/concurrent/锁的优点和缺点.png)
 - [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/ObjectLayoutTest.java)
 

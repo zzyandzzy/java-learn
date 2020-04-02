@@ -1,6 +1,12 @@
 # 对象布局
-- [对象布局](../../其他/concurrent/对象布局.png)
-- [markword布局](../../其他/concurrent/对象markword.png)
+- [轻量级锁CAS](./CompareAndSwap.md)
+- [volatile关键字](./Volatile.md)
+- [synchronized关键字](./Synchronized.md)
+- [锁升级](./LockUpgrade.md)
+
+# 资料
+- [对象布局图](../../其他/concurrent/对象布局.png)
+- [MarkWord布局图](../../其他/concurrent/对象markword.png)
 - [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/ObjectLayoutTest.java)
 
 在`pom.xml`中导入
