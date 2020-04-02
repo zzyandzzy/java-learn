@@ -5,7 +5,7 @@
     - [测试用例](./src/test/java/xyz/zzyitj/demo/tree/RBTreeTest.java)
     
 # 并发
-
+- [对象布局](./readme/concurrent/ObjectLayout.md)
 - [CAS](./readme/concurrent/CompareAndSwap.md)
 
 # lang
