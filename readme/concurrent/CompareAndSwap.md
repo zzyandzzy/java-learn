@@ -1,8 +1,10 @@
 # 资料
 - [流程图](../../其他/concurrent/cas流程图.png)
 - [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/CompareAndSwapTest.java)
+- [锁优点和缺点](../../其他/concurrent/锁的优点和缺点.png)
 
 锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
+锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
 
 CAS自旋锁(乐观锁)是轻量级锁
 
