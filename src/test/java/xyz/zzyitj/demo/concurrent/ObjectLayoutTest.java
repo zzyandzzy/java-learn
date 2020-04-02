@@ -15,12 +15,18 @@ public class ObjectLayoutTest {
      * 打印上了synchronized锁后的变化
      */
     @Test
-    public void testPrintConcurrent() {
+    public void testPrintConcurrent() throws InterruptedException {
         Object o = new Object();
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
         synchronized (o) {
             System.out.println(ClassLayout.parseInstance(o).toPrintable());
         }
+        new Thread(() -> {
+            synchronized (o) {
+                System.out.println(ClassLayout.parseInstance(o).toPrintable());
+            }
+        }).start();
+        Thread.sleep(1000);
     }
 
     /**
