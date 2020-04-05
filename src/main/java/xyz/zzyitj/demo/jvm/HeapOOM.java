@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * xyz.zzyitj.demo.jvm
  * 测试堆的OutOfMemoryError
- * VM Args：-Xms20M -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+ * VM Options：-Xms20M -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
  * -XX:+HeapDumpOnOutOfMemoryError这个参数会把当前OOM的内存映像拷贝下来
  *
  * @author intent zzy.main@gmail.com
