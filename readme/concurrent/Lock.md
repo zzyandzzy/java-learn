@@ -8,6 +8,12 @@
 
 # 其他
 
+进程和线程的区别
+
+    进程是系统进行资源分配和调度的基本单位。
+    
+    线程是CPU进行资源分配和调度的最小单位。
+
 锁消除
 - [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
 ```java

@@ -2,9 +2,25 @@
 
 - 树(Tree)
   - [红黑树](./readme/tree/RBTree.md)
+
+# 算法
+
+- [排序](./readme/algorithm/Sort.md)
+  
+# 设计模式
+- [单例](./readme/designpattern/Singleton.md)
     
 # 并发
 - [锁](./readme/concurrent/Lock.md)
+
+# JVM
+- [第二章 自动内存管理](./readme/jvm/Chapter2.md)
+
+# 引用类型
+- [强](./readme/reference/Normal.md)
+- [弱](./readme/reference/Soft.md)
+- [软](./readme/reference/Weak.md)
+- [虚](./readme/reference/Phantom.md)
 
 # lang
 - [String](./src/main/java/xyz/zzyitj/source/java/lang/String.java)
