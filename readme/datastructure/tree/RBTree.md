@@ -1,6 +1,6 @@
 # 红黑树
-- [红黑树实现](../../src/main/java/xyz/zzyitj/demo/tree/RBTree.java)
-- [测试用例](../../src/test/java/xyz/zzyitj/demo/tree/RBTreeTest.java)
+- [红黑树实现](../../../src/main/java/xyz/zzyitj/demo/datastructure/tree/RBTree.java)
+- [测试用例](../../../src/test/java/xyz/zzyitj/demo/datastructure/tree/RBTreeTest.java)
 
 各种树的时间复杂度对比：
 

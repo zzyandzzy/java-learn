@@ -11,7 +11,7 @@ import java.util.TreeSet;
  * <p>
  * {@link TreeSet}底层是{@link java.util.TreeMap}也就是红黑树
  * 具体实现加注解:
- * {@link xyz.zzyitj.demo.tree.RBTree}
+ * {@link xyz.zzyitj.demo.datastructure.tree.RBTree}
  *
  * @author intent zzy.main@gmail.com
  * @date 2020/3/30 5:28 下午

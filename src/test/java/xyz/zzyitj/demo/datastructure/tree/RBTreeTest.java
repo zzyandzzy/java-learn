@@ -1,9 +1,9 @@
-package xyz.zzyitj.demo.tree;
+package xyz.zzyitj.demo.datastructure.tree;
 
 import org.junit.Test;
 
 /**
- * xyz.zzyitj.demo.tree
+ * xyz.zzyitj.demo.datastructure.tree
  * 红黑树源码实现{@link RBTree}
  *
  * @author intent zzy.main@gmail.com

@@ -35,7 +35,7 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import sun.misc.SharedSecrets;
-import xyz.zzyitj.demo.tree.RBTree;
+import xyz.zzyitj.demo.datastructure.tree.RBTree;
 
 /**
  * Hash table based implementation of the <tt>Map</tt> interface.  This
@@ -1854,7 +1854,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         /**
          * Finds the node starting at root p with the given hash and key.
          * The kc argument caches comparableClassFor(key) upon first use
-         * comparing keys.{@link xyz.zzyitj.demo.tree.RBTree#search(RBTree.RBTNode, Comparable)}
+         * comparing keys.{@link xyz.zzyitj.demo.datastructure.tree.RBTree#search(RBTree.RBTNode, Comparable)}
          */
         final TreeNode<K,V> find(int h, Object k, Class<?> kc) {
             TreeNode<K,V> p = this;

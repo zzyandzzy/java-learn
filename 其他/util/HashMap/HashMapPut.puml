@@ -1,0 +1,89 @@
+@startuml
+
+skinparam backgroundColor #2B2B2B
+skinparam handwritten false
+
+skinparam activity {
+  StartColor #298C0B
+  BarColor yellow
+  EndColor #298C0B
+  ArrowColor #298C0B
+  BackgroundColor<< Begin >> Olive
+  BorderColor Peru
+}
+
+partition <color:white>put</color> #BBB{
+    (*) -->[<b><size:20><color:white>开始</color></size></b>] "public V put(K key, V value)"
+}
+
+partition <color:white>putVal</color> #575C61{
+    -->"final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                                                boolean evict)"
+    note right: 先计算hash再putVal
+    if "" then
+    note left: <b><color:red>数组是否为空</color></b>
+}
+
+partition <color:white>resize</color> #LightSkyBlue {
+    -left->[<b><size:15><color:white>是</color></size></b>] "final Node<K,V>[] resize()"
+    note right: 如果table为空则初始化，不为空扩大为原来的2倍
+}
+
+partition <color:white>putVal</color> #575C61{
+  -->"tab[i = (n - 1) & hash]"
+  else
+  -->[<b><size:15><color:white>否</color></size></b>] "tab[i = (n - 1) & hash]"
+  note right: 计算存储位置
+  if "" then
+  note left: <b><color:red>存储位置是否存在数据</color></b>
+    -->[<b><size:15><color:white>否</color></size></b>] "存放在第一个节点"
+    --> (*)
+  else
+    --->[<b><size:15><color:white>是</color></size></b>] ===S1===
+  endif
+  if "" then
+      note left: <b><color:red>key是否相等</color></b>
+      -->[<b><size:15><color:white>否</color></size></b>] "替换旧的值"
+      --> (*)
+    else
+      -->[<b><size:15><color:white>是</color></size></b>] ===RBTree===
+      if "" then
+      note left: <b><color:red>节点是否是红黑树节点</color></b>
+}
+
+partition <color:white>putTreeVal</color> #AA00FF{
+  -->[<b><size:15><color:white>是</color></size></b>] "final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
+                                                                            int h, K k, V v) {"
+  note right: 加入红黑树节点
+  if "" then
+  note left: <b><color:red>当前大小是否大于扩容阀值</color></b>
+}
+
+partition <color:white>resize</color> #LightSkyBlue {
+  -->[<b><size:15><color:white>是</color></size></b>] "final Node<K,V>[] resize()"
+  --> (*)
+}
+else
+    -->[<b><size:15><color:white>否</color></size></b>] (*)
+endif
+
+partition <color:white>putVal</color> #575C61{
+      else
+      -->[<b><size:15><color:white>否</color></size></b>] "尾插法插入链表"
+      if "" then
+      note left: <b><color:red>列表长度是否大于8</color></b>
+}
+
+partition <color:white>treeifyBin</color> #80AA80{
+      -->[<b><size:15><color:white>是</color></size></b>] "final void treeifyBin(Node<K,V>[] tab, int hash)"
+      note right: 转换为红黑树
+      --> (*)
+}
+      else
+      -->[<b><size:15><color:white>否</color></size></b>] (*)
+      endif
+      endif
+    endif
+endif
+
+@enduml

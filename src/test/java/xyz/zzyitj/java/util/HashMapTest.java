@@ -3,7 +3,7 @@ package xyz.zzyitj.java.util;
 
 import org.junit.Before;
 import org.junit.Test;
-import xyz.zzyitj.demo.tree.RBTree;
+import xyz.zzyitj.demo.datastructure.tree.RBTree;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,9 +47,9 @@ import java.util.Map;
  * 4：替换分析 查找到相同的值直接替换
  * 5：查询分析 如果是链表，直接循环整个链表查询
  * 如果是树，二叉搜索树二分查找{@link HashMap.TreeNode#find(int, Object, Class)}
- * {@link xyz.zzyitj.demo.tree.RBTree#search(RBTree.RBTNode, Comparable)}
+ * {@link xyz.zzyitj.demo.datastructure.tree.RBTree#search(RBTree.RBTNode, Comparable)}
  * 6：扩容分析 {@link #testResize()}
- * 7：红黑树 {@link xyz.zzyitj.demo.tree.RBTree}
+ * 7：红黑树 {@link xyz.zzyitj.demo.datastructure.tree.RBTree}
  *
  * @author intent zzy.main@gmail.com
  * @date 2020/3/27 3:53 下午

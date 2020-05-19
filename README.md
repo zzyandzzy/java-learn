@@ -1,7 +1,10 @@
 # 数据结构
 
+- 线性表(LinearList)
+  - [数组结构](readme/datastructure/linearlist/ZArrayList.md)
+
 - 树(Tree)
-  - [红黑树](./readme/tree/RBTree.md)
+  - [红黑树](readme/datastructure/tree/RBTree.md)
 
 # 算法
 

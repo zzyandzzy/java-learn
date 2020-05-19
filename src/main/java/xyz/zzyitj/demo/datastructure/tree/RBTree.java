@@ -1,7 +1,7 @@
-package xyz.zzyitj.demo.tree;
+package xyz.zzyitj.demo.datastructure.tree;
 
 /**
- * xyz.zzyitj.demo.tree
+ * xyz.zzyitj.demo.datastructure.tree
  * <p>
  * <p>
  * 红黑树的性质：

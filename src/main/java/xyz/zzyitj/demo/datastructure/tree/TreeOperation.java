@@ -1,7 +1,7 @@
-package xyz.zzyitj.demo.tree;
+package xyz.zzyitj.demo.datastructure.tree;
 
 /**
- * xyz.zzyitj.demo.tree
+ * xyz.zzyitj.demo.datastructure.tree
  *
  * @author intent zzy.main@gmail.com
  * @date 2020/3/28 3:24 下午
