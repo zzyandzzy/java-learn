@@ -1,7 +1,7 @@
 # 数据结构
 
 - 线性表(LinearList)
-  - [数组结构](readme/datastructure/linearlist/ZArrayList.md)
+  - [顺序存储](readme/datastructure/linearlist/ZArrayList.md)
 
 - 树(Tree)
   - [红黑树](readme/datastructure/tree/RBTree.md)
@@ -9,10 +9,12 @@
 # 算法
 
 - [排序](./readme/algorithm/Sort.md)
-  
+
 # 设计模式
-- [单例](./readme/designpattern/Singleton.md)
-    
+- 创建型
+  - [工厂方法](./readme/designpattern/creational/FactoryMethod.md)
+  - [单例](./readme/designpattern/Singleton.md)
+  
 # 并发
 - [锁](./readme/concurrent/Lock.md)
 

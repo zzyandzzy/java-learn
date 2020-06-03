@@ -1,7 +1,7 @@
-package xyz.zzyitj.demo.designpattern.singleton;
+package xyz.zzyitj.demo.designpattern.creational.singleton;
 
 /**
- * xyz.zzyitj.demo.designpattern.singleton
+ * xyz.zzyitj.demo.designpattern.creational.factorymethod.singleton
  *
  * @author intent zzy.main@gmail.com
  * @date 2020/4/5 10:28 上午

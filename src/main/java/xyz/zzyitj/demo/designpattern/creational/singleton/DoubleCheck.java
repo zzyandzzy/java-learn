@@ -1,7 +1,7 @@
-package xyz.zzyitj.demo.designpattern.singleton;
+package xyz.zzyitj.demo.designpattern.creational.singleton;
 
 /**
- * xyz.zzyitj.demo.designpattern.singleton
+ * xyz.zzyitj.demo.designpattern.creational.factorymethod.singleton
  * 单例模式之双重检查
  *
  * @author intent zzy.main@gmail.com
