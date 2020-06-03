@@ -7,9 +7,9 @@ package xyz.zzyitj.demo.designpattern.creational.factorymethod;
  * @date 2020/6/3 7:56 下午
  * @since 1.0
  */
-public abstract class VideoFactory {
+public interface VideoFactory {
     /**
      * @return {@link Video}
      */
-    abstract Video getVideo();
+    Video getVideo();
 }

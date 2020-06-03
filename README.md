@@ -13,7 +13,8 @@
 # 设计模式
 - 创建型
   - [工厂方法](./readme/designpattern/creational/FactoryMethod.md)
-  - [单例](./readme/designpattern/Singleton.md)
+  - [抽象工厂](./readme/designpattern/creational/AbstractFactory.md)
+  - [单例](readme/designpattern/creational/Singleton.md)
   
 # 并发
 - [锁](./readme/concurrent/Lock.md)

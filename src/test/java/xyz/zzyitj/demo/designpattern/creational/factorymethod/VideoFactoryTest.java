@@ -13,16 +13,22 @@ import static org.junit.Assert.*;
  */
 public class VideoFactoryTest {
     @Test
-    public void testJavaVideoFactory() {
+    public void testJavaFactory() {
         VideoFactory videoFactory = new JavaVideoFactory();
         Video video = videoFactory.getVideo();
         video.produce();
+        ArticleFactory articleFactory = new JavaArticleFactory();
+        Article article = articleFactory.getArticle();
+        article.produce();
     }
 
     @Test
-    public void testPythonVideoFactory() {
+    public void testPythonFactory() {
         VideoFactory videoFactory = new PythonVideoFactory();
         Video video = videoFactory.getVideo();
         video.produce();
+        ArticleFactory articleFactory = new PythonArticleFactory();
+        Article article = articleFactory.getArticle();
+        article.produce();
     }
 }

@@ -7,9 +7,9 @@ package xyz.zzyitj.demo.designpattern.creational.factorymethod;
  * @date 2020/6/3 8:02 下午
  * @since 1.0
  */
-public class JavaVideoFactory extends VideoFactory {
+public class JavaVideoFactory implements VideoFactory {
     @Override
-    Video getVideo() {
+    public Video getVideo() {
         return new JavaVideo();
     }
 }
