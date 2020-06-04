@@ -51,3 +51,6 @@
 public class Test{
 }
 ```
+
+# 结构
+![FactoryMethod](../../../其他/designpattern/creational/FactoryMethod.png)

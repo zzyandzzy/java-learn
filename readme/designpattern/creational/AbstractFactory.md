@@ -52,3 +52,6 @@
 public class Test{
 }
 ```
+
+# 结构
+![AbstractFactory](../../../其他/designpattern/creational/AbstractFactory.png)
