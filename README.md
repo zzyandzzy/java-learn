@@ -14,6 +14,7 @@
 - 创建型
   - [工厂方法](./readme/designpattern/creational/FactoryMethod.md)
   - [抽象工厂](./readme/designpattern/creational/AbstractFactory.md)
+  - [建造者](./readme/designpattern/creational/Builder.md)
   - [单例](readme/designpattern/creational/Singleton.md)
   
 # 并发
@@ -30,8 +31,8 @@
 
 # lang
 - [String](./src/main/java/xyz/zzyitj/source/java/lang/String.java)
-- [StringBuffer](./src/main/java/xyz/zzyitj/source/java/lang/StringBuffer.java) 同步的
-- [StringBuilder](./src/main/java/xyz/zzyitj/source/java/lang/StringBuilder.java) 不是同步的
+- [StringBuffer](./src/main/java/xyz/zzyitj/source/java/lang/StringBuffer.java)
+- [StringBuilder](./src/main/java/xyz/zzyitj/source/java/lang/StringBuilder.java)
 - [Number](./src/main/java/xyz/zzyitj/source/java/lang/Number.java)
   - [Integer](./src/main/java/xyz/zzyitj/source/java/lang/Integer.java)
   - [Long](./src/main/java/xyz/zzyitj/source/java/lang/Long.java)
