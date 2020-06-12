@@ -858,11 +858,11 @@ public abstract class AbstractQueuedSynchronizer
         boolean failed = true;
         try {
             boolean interrupted = false;
-            for (;;) {
-                final Node p = node.predecessor();
-                if (p == head && tryAcquire(arg)) {
-                    setHead(node);
-                    p.next = null; // help GC
+            for (;;) {// 空循环
+                final Node p = node.predecessor();// 前驱节点
+                if (p == head && tryAcquire(arg)) {// 如果前驱节点是头结点，我就尝试去获取锁
+                    setHead(node);// 获取到锁，设置自己为头结点
+                    p.next = null; // help GC，前驱节点都已经执行完了，你可以被GC了(*ﾟДﾟ*) 
                     failed = false;
                     return interrupted;
                 }
@@ -1072,7 +1072,7 @@ public abstract class AbstractQueuedSynchronizer
      *         correctly.
      * @throws UnsupportedOperationException if exclusive mode is not supported
      */
-    protected boolean tryAcquire(int arg) {
+    protected boolean tryAcquire(int arg) {// 父类不支持实现，子类实现
         throw new UnsupportedOperationException();
     }
 
@@ -1195,9 +1195,9 @@ public abstract class AbstractQueuedSynchronizer
      *        can represent anything you like.
      */
     public final void acquire(int arg) {
-        if (!tryAcquire(arg) &&
-            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
-            selfInterrupt();
+        if (!tryAcquire(arg) &&// 尝试获取锁
+            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))// 没有获取成功就加入队列，EXCLUSIVE独占方式
+            selfInterrupt();// 获取成功，打断自己，唤醒自己
     }
 
     /**

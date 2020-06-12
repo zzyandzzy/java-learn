@@ -5,6 +5,8 @@
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
 - [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/xyz/zzyitj/source/java/util/concurrent/locks)
+  - [ReentrantLock](./ReentrantLock.md)
 
 # 其他
 
