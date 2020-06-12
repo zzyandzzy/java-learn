@@ -982,12 +982,12 @@ public abstract class AbstractQueuedSynchronizer
         final Node node = addWaiter(Node.SHARED);
         boolean failed = true;
         try {
-            for (;;) {
-                final Node p = node.predecessor();
-                if (p == head) {
-                    int r = tryAcquireShared(arg);
+            for (;;) {// 空循环等待
+                final Node p = node.predecessor();// 前驱节点
+                if (p == head) {// 如果前驱节点是头节点
+                    int r = tryAcquireShared(arg);// 返回结果等于0代表没有线程在队列里面了，小于0说明还有线程在队列里面
                     if (r >= 0) {
-                        setHeadAndPropagate(node, r);
+                        setHeadAndPropagate(node, r);// 设置头结点为当前节点
                         p.next = null; // help GC
                         failed = false;
                         return;
@@ -1134,7 +1134,7 @@ public abstract class AbstractQueuedSynchronizer
      *         correctly.
      * @throws UnsupportedOperationException if shared mode is not supported
      */
-    protected int tryAcquireShared(int arg) {
+    protected int tryAcquireShared(int arg) {// 子类实现
         throw new UnsupportedOperationException();
     }
 
@@ -1298,10 +1298,10 @@ public abstract class AbstractQueuedSynchronizer
      */
     public final void acquireSharedInterruptibly(int arg)
             throws InterruptedException {
-        if (Thread.interrupted())
+        if (Thread.interrupted())// 如果线程设置了中断就不支持唤醒。
             throw new InterruptedException();
-        if (tryAcquireShared(arg) < 0)
-            doAcquireSharedInterruptibly(arg);
+        if (tryAcquireShared(arg) < 0)// 返回结果等于0代表没有线程在队列里面了，小于0说明还有线程在队列里面
+            doAcquireSharedInterruptibly(arg);//
     }
 
     /**
@@ -1338,8 +1338,8 @@ public abstract class AbstractQueuedSynchronizer
      * @return the value returned from {@link #tryReleaseShared}
      */
     public final boolean releaseShared(int arg) {
-        if (tryReleaseShared(arg)) {
-            doReleaseShared();
+        if (tryReleaseShared(arg)) {// 尝试设置state - 1
+            doReleaseShared();// 移出队列，你被踢出群了
             return true;
         }
         return false;

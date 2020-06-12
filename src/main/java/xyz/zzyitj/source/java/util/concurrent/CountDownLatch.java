@@ -162,7 +162,7 @@ public class CountDownLatch {
         private static final long serialVersionUID = 4982264981922014374L;
 
         Sync(int count) {
-            setState(count);
+            setState(count);// 设置state为count
         }
 
         int getCount() {
@@ -170,18 +170,18 @@ public class CountDownLatch {
         }
 
         protected int tryAcquireShared(int acquires) {
-            return (getState() == 0) ? 1 : -1;
+            return (getState() == 0) ? 1 : -1;// 等于0返回1，否则返回-1
         }
 
         protected boolean tryReleaseShared(int releases) {
             // Decrement count; signal when transition to zero
             for (;;) {
                 int c = getState();
-                if (c == 0)
+                if (c == 0)// 线程都执行完了，你还想减？？？
                     return false;
                 int nextc = c-1;
-                if (compareAndSetState(c, nextc))
-                    return nextc == 0;
+                if (compareAndSetState(c, nextc))// CAS自旋减
+                    return nextc == 0;// 减后是否等于0
             }
         }
     }
