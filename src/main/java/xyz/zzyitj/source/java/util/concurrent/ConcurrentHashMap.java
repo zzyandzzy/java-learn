@@ -682,20 +682,20 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
      * never be used in index calculations because of table bounds.参考{@link HashMap#hash(Object)} {@link Hashtable#put(Object, Object)}
      */
     static final int spread(int h) {// 怎么感觉有点像HashMap和Hashtable的结合体？？？
-        return (h ^ (h >>> 16)) & HASH_BITS;
+        return (h ^ (h >>> 16)) & HASH_BITS;// HASH_BITS，2>>31-1
     }
 
     /**
      * Returns a power of two table size for the given desired capacity.
      * See Hackers Delight, sec 3.2，参考{@link HashMap#tableSizeFor(int)}
      */
-    private static final int tableSizeFor(int c) {
-        int n = c - 1;
-        n |= n >>> 1;
-        n |= n >>> 2;
-        n |= n >>> 4;
-        n |= n >>> 8;
-        n |= n >>> 16;
+    private static final int tableSizeFor(int c) {//如果自己传入初始大小k，初始化大小为大于k的 2的整数次方，例如传10，大小为16。
+        int n = c - 1;// 比如c=19，n=19-1=18，那么为什么要先-1再+1呢？输入若是为0，那么不论怎么操作，n还是0，但是容量只有大于0时才有意义。
+        n |= n >>> 1;// n = 18 | 9 = 27
+        n |= n >>> 2;// n = 27 | 6 = 31
+        n |= n >>> 4;// n = 31 | 1 = 31
+        n |= n >>> 8;// n = 31 | 0 = 31
+        n |= n >>> 16;// n = 31 | 0 = 31，通过上面可以看出，这个算法实际上就是把19二进制的0变为1，int类型最大为16位
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 
@@ -754,7 +754,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
     static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
         return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
     }
-
+    // CAS操作插入节点，比较数组下标为i的节点是否为c，若是，用v交换，否则不操作。
     static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
                                         Node<K,V> c, Node<K,V> v) {
         return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
@@ -837,7 +837,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         if (initialCapacity < 0)
             throw new IllegalArgumentException();
         int cap = ((initialCapacity >= (MAXIMUM_CAPACITY >>> 1)) ?
-                   MAXIMUM_CAPACITY :
+                   MAXIMUM_CAPACITY :// 比如initialCapacity = 12，12 + 6 + 1 = 19
                    tableSizeFor(initialCapacity + (initialCapacity >>> 1) + 1));
         this.sizeCtl = cap;
     }
@@ -1009,22 +1009,22 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
     /** Implementation for put and putIfAbsent */
     final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (key == null || value == null) throw new NullPointerException();
-        int hash = spread(key.hashCode());
+        int hash = spread(key.hashCode());// 计算hash
         int binCount = 0;
         for (Node<K,V>[] tab = table;;) {
             Node<K,V> f; int n, i, fh;
-            if (tab == null || (n = tab.length) == 0)
-                tab = initTable();
-            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
-                if (casTabAt(tab, i, null,
+            if (tab == null || (n = tab.length) == 0)// 如果table为空
+                tab = initTable();// 初始化
+            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {// table在(n - 1) & hash处的头结点为空，说明第一次插入
+                if (casTabAt(tab, i, null,// 自旋设置值
                              new Node<K,V>(hash, key, value, null)))
                     break;                   // no lock when adding to empty bin
             }
-            else if ((fh = f.hash) == MOVED)
+            else if ((fh = f.hash) == MOVED)// MOVED=-1，当前正在扩容，一起进行扩容操作
                 tab = helpTransfer(tab, f);
             else {
                 V oldVal = null;
-                synchronized (f) {
+                synchronized (f) {// 其他情况加锁同步
                     if (tabAt(tab, i) == f) {
                         if (fh >= 0) {
                             binCount = 1;
@@ -1066,7 +1066,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
                     break;
                 }
             }
-        }
+        }// 看是否需要扩容
         addCount(1L, binCount);
         return null;
     }
@@ -2220,7 +2220,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
     /**
      * Initializes table, using the size recorded in sizeCtl.
      */
-    private final Node<K,V>[] initTable() {
+    private final Node<K,V>[] initTable() {// 初始化table
         Node<K,V>[] tab; int sc;
         while ((tab = table) == null || tab.length == 0) {
             if ((sc = sizeCtl) < 0)
@@ -2228,11 +2228,11 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
             else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {
                 try {
                     if ((tab = table) == null || tab.length == 0) {
-                        int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
+                        int n = (sc > 0) ? sc : DEFAULT_CAPACITY;// 如果有自定义的大小就设置为自定义的大小
                         @SuppressWarnings("unchecked")
-                        Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
+                        Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];// 真正的初始化代码
                         table = tab = nt;
-                        sc = n - (n >>> 2);
+                        sc = n - (n >>> 2);// 16 - (16 >>> 2) = 16 - 4 = 12
                     }
                 } finally {
                     sizeCtl = sc;

@@ -175,7 +175,7 @@ public class HashMapTest {
     }
 
     /**
-     * 测试key为null的情况
+     * 测试key或者value为null的情况
      */
     @Test
     public void testNull() {
@@ -184,5 +184,7 @@ public class HashMapTest {
         System.out.printf("%s\n", map.get(null));
         map.remove(null);
         System.out.printf("%s\n", map.get(null));
+        map.put("aaa", null);
+        System.out.println(map.get("aaa"));
     }
 }
