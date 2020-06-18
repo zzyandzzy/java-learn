@@ -1362,20 +1362,20 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
          * thread.  If it fails, we know we are shut down or saturated
          * and so reject the task.
          */
-        int c = ctl.get();
-        if (workerCountOf(c) < corePoolSize) {
-            if (addWorker(command, true))
+        int c = ctl.get();// 获取正在运行的线程数
+        if (workerCountOf(c) < corePoolSize) {// 如果工作线程数小于核心线程数，则创建一个新的线程来执行任务。
+            if (addWorker(command, true))// 对addWorker的调用以原子方式检查runState和workerCount，从而通过返回false来防止在不应该添加threads的错误警报。
                 return;
             c = ctl.get();
-        }
-        if (isRunning(c) && workQueue.offer(command)) {
-            int recheck = ctl.get();
-            if (! isRunning(recheck) && remove(command))
+        }// 如果当前运行线程数大于了核心线程数
+        if (isRunning(c) && workQueue.offer(command)) {// 如果当前线程正在运行，则尝试把当前线程加入工作队列
+            int recheck = ctl.get();// 需要再次检查,主要目的是判断加入到阻塞队里中的线程是否可以被执行
+            if (! isRunning(recheck) && remove(command))// 如果线程池状态不为running，将任务从阻塞队列里面移除，启用拒绝策略
                 reject(command);
-            else if (workerCountOf(recheck) == 0)
+            else if (workerCountOf(recheck) == 0)// 如果线程池的工作线程为零，则调用addWoker提交任务
                 addWorker(null, false);
         }
-        else if (!addWorker(command, false))
+        else if (!addWorker(command, false))// 如果当前运行线程数大于了核心线程数，并且当前线程没有在运行，则启动一个非核心线程来运行这个任务。
             reject(command);
     }
 

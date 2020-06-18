@@ -2,6 +2,7 @@
   - [冒泡排序](./sort/BubbleSort.md)
   - [选择排序](./sort/SelectSort.md)
   - [插入排序](./sort/InsertSort.md)
+  - [快速排序](./sort/QuickSort.md)
 
 - 区别
 
