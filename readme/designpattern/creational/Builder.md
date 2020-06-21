@@ -14,7 +14,7 @@
       用户只需指定需要建造的类型就可以得到它们，建造过程及细节不需要知道
       
          
-# 优缺点
+## 优缺点
 
 - 优点
 
@@ -28,7 +28,7 @@
       
       产品内部发生变化，建造者都需要修改，成本较大
 
-# 代码
+## 代码
 
 - v1
   - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/builder)
@@ -37,6 +37,14 @@
 - v2
   - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/builder/v2)
   - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/builder/v2/CourseTest.java)
+
+## 结构类图
+
+| V1版本 | V2版本 |
+| :--------: | :--------: |
+| ![BuilderV1](../../../其他/designpattern/creational/BuilderV1.png) | ![BuilderV2](../../../其他/designpattern/creational/BuilderV2.png) |
+
+## JDK使用到的Builder设计模式
 
 ```java
 /**
@@ -48,9 +56,3 @@
 public class Test{
 }
 ```
-
-# 结构
-
-| V1版本 | V2版本 |
-| :--------: | :--------: |
-| ![BuilderV1](../../../其他/designpattern/creational/BuilderV1.png) | ![BuilderV2](../../../其他/designpattern/creational/BuilderV2.png) |

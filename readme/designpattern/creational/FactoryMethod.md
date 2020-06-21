@@ -19,7 +19,7 @@
       一个类通过其子类来指定创建哪对象
     
 
-# 优缺点
+## 优缺点
 
 - 优点
 
@@ -33,10 +33,15 @@
       
       增加了系统的抽象性和理解难度
 
-# 代码
+## 代码
 
 - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/factorymethod)
 - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/factorymethod/VideoFactoryTest.java)
+
+## 结构类图
+![FactoryMethod](../../../其他/designpattern/creational/FactoryMethod.png)
+
+## JDK使用到的工厂方法
 
 ```java
 /**
@@ -51,6 +56,3 @@
 public class Test{
 }
 ```
-
-# 结构
-![FactoryMethod](../../../其他/designpattern/creational/FactoryMethod.png)

@@ -11,11 +11,13 @@
 - [排序](./readme/algorithm/Sort.md)
 
 # 设计模式
-- 创建型
+- [创建型](./readme/designpattern/creational)
   - [工厂方法](./readme/designpattern/creational/FactoryMethod.md)
   - [抽象工厂](./readme/designpattern/creational/AbstractFactory.md)
   - [建造者](./readme/designpattern/creational/Builder.md)
   - [单例](readme/designpattern/creational/Singleton.md)
+- [结构型](./readme/designpattern/structural)
+  - [装饰者](./readme/designpattern/structural/Decorator.md)
   
 # 并发
 - [锁](./readme/concurrent/Lock.md)

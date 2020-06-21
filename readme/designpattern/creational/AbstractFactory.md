@@ -20,7 +20,7 @@
       
       不需要经常修改的产品
          
-# 优缺点
+## 优缺点
 
 - 优点
 
@@ -34,10 +34,16 @@
       
       增加了系统的抽象性和理解难度
 
-# 代码
+## 代码
 
 - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/abstractfactory)
 - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/abstractfactory/CourseFactoryTest.java)
+
+## 结构类图
+![AbstractFactory](../../../其他/designpattern/creational/AbstractFactory.png)
+
+
+## JDK使用到的抽象工厂
 
 ```java
 /**
@@ -52,6 +58,3 @@
 public class Test{
 }
 ```
-
-# 结构
-![AbstractFactory](../../../其他/designpattern/creational/AbstractFactory.png)
