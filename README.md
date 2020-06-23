@@ -18,6 +18,7 @@
   - [单例](readme/designpattern/creational/Singleton.md)
 - [结构型](./readme/designpattern/structural)
   - [装饰者](./readme/designpattern/structural/Decorator.md)
+  - [代理模式](./readme/designpattern/structural/Proxy.md)
   
 # 并发
 - [锁](./readme/concurrent/Lock.md)

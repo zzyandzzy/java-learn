@@ -10,6 +10,11 @@ package xyz.zzyitj.demo.concurrent;
  */
 public class SynchronizedTest {
 
+    /**
+     * javac SynchronizedTest.java
+     *
+     * @param args
+     */
     public static void main(String[] args) {
     }
 
@@ -25,5 +30,14 @@ public class SynchronizedTest {
     }
 
     private synchronized void sync4() {
+    }
+
+    public synchronized void sync5() {
+    }
+
+    public void sync6() {
+    }
+
+    void sync7() {
     }
 }
