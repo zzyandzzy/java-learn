@@ -99,9 +99,9 @@ public class FutureTask<V> implements RunnableFuture<V> {
     private static final int INTERRUPTED  = 6;
 
     /** The underlying callable; nulled out after running */
-    private Callable<V> callable;
+    private Callable<V> callable;// 异步执行
     /** The result to return or exception to throw from get() */
-    private Object outcome; // non-volatile, protected by state reads/writes
+    private Object outcome; // non-volatile, protected by state reads/writes，保存结果
     /** The thread running the callable; CASed during run() */
     private volatile Thread runner;
     /** Treiber stack of waiting threads */

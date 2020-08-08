@@ -1,8 +1,8 @@
 # 资料
 
-- [HashMap](../../src/main/java/xyz/zzyitj/source/java/util/HashMap.java)
-  - [测试用例](../../src/test/java/xyz/zzyitj/java/util/HashMapTest.java)
-  - [插入流程图](../../其他/util/HashMap/插入流程图.png)
+- [HashMap源码](../../src/main/java/xyz/zzyitj/source/java/util/HashMap.java)
+- [测试用例](../../src/test/java/xyz/zzyitj/java/util/HashMapTest.java)
+- [插入流程图](../../其他/util/HashMap/插入流程图.png)
   
 # 问题
 

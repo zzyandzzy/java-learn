@@ -116,7 +116,7 @@ public interface Future<V> {
      * typically because it has already completed normally;
      * {@code true} otherwise
      */
-    boolean cancel(boolean mayInterruptIfRunning);
+    boolean cancel(boolean mayInterruptIfRunning);// 取消并发任务的执行
 
     /**
      * Returns {@code true} if this task was cancelled before it completed
@@ -124,7 +124,7 @@ public interface Future<V> {
      *
      * @return {@code true} if this task was cancelled before it completed
      */
-    boolean isCancelled();
+    boolean isCancelled();// 获取并发任务的取消状态。如果任务完成前被取消，则返回true。
 
     /**
      * Returns {@code true} if this task completed.
@@ -135,7 +135,7 @@ public interface Future<V> {
      *
      * @return {@code true} if this task completed
      */
-    boolean isDone();
+    boolean isDone();// 获取并发任务的执行状态。如果任务执行结束，则返回true。
 
     /**
      * Waits if necessary for the computation to complete, and then
@@ -148,7 +148,7 @@ public interface Future<V> {
      * @throws InterruptedException if the current thread was interrupted
      * while waiting
      */
-    V get() throws InterruptedException, ExecutionException;
+    V get() throws InterruptedException, ExecutionException;// 获取并发任务执行的结果。注意，这个方法是阻塞性的。如果并发任务没有执行完成，调用此方法的线程会一直阻塞，直到并发任务执行完成。
 
     /**
      * Waits if necessary for at most the given time for the computation
@@ -164,6 +164,6 @@ public interface Future<V> {
      * while waiting
      * @throws TimeoutException if the wait timed out
      */
-    V get(long timeout, TimeUnit unit)
+    V get(long timeout, TimeUnit unit)// 如果阻塞时间超过设定的timeout时间，该方法将抛出异常。
         throws InterruptedException, ExecutionException, TimeoutException;
 }
