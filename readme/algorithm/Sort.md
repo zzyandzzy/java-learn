@@ -3,6 +3,7 @@
   - [选择排序.md](./sort/SelectSort.md)
   - [插入排序.md](./sort/InsertSort.md)
   - [快速排序.md](./sort/QuickSort.md)
+  - [希尔排序.md](./sort/ShellSort.md)
 
 - 区别
 
