@@ -139,14 +139,14 @@ public class HashMapTest {
      */
     @Test
     public void testConstructor() {
-//        map = new HashMap<>();
+        map = new HashMap<>();
 //        map = new HashMap<>(50);
         /**
          * 构造函数{@linkplain HashMap#HashMap(int, float) 传入容器大小和负载因子}
          * 先设置loadFactor
          * 然后调用{@linkplain HashMap#tableSizeFor(int)} 计算传入参数最接近的2的倍数再赋值给threshold
          */
-        map = new HashMap<>(50, 2.0F);
+        //map = new HashMap<>(50, 2.0F);
         /**
          * 因为桶为空，所以先调用{@linkplain HashMap#resize() 扩容函数}
          * 初始化桶大小为threshold并设置threshold为当前容器大小 * 负载因子

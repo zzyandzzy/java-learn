@@ -60,8 +60,8 @@
 
 # 引用类型
 - [强](./readme/reference/Normal.md)
-- [弱](./readme/reference/Soft.md)
-- [软](./readme/reference/Weak.md)
+- [软](./readme/reference/Soft.md)
+- [弱](./readme/reference/Weak.md)
 - [虚](./readme/reference/Phantom.md)
 
 # lang
