@@ -1,6 +1,6 @@
 # 源码调试
 
-## IntelliJ DEA
+## IntelliJ IDEA
 
 - 第一步：
   ```bash
