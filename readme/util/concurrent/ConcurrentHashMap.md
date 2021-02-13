@@ -1,7 +1,7 @@
 # ConcurrentHashMap
 
-- [ConcurrentHashMap源码](../../../src/main/java/xyz/zzyitj/source/java/util/concurrent/ConcurrentHashMap.java)
-- [测试用例](../../../src/test/java/xyz/zzyitj/java/util/concurrent/ConcurrentHashMapTest.java)
+- [ConcurrentHashMap源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/concurrent/ConcurrentHashMap.java)
+- [测试用例](../../../src/test/java/cool/zzy/java/util/concurrent/ConcurrentHashMapTest.java)
 
 ## 初始化
 

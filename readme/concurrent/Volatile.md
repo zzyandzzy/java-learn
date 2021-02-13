@@ -1,11 +1,15 @@
 # volatile关键字
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
+- [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
+    - [ReentrantLock](./ReentrantLock.md)
 
 # 特征
-- [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/VolatileTest.java)
+- [测试用例](../../src/test/java/cool/zzy/demo/concurrent/VolatileTest.java)
 
 - 保证多线程之间的可见性
 - 防止指令重排序

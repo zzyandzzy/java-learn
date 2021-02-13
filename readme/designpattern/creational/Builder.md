@@ -32,11 +32,11 @@
 
 - v1
   - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/builder)
-  - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/builder/CourseBuilderTest.java)
+  - [测试](../../../src/test/java/cool/zzy/demo/designpattern/creational/builder/CourseBuilderTest.java)
 
 - v2
   - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/builder/v2)
-  - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/builder/v2/CourseTest.java)
+  - [测试](../../../src/test/java/cool/zzy/demo/designpattern/creational/builder/v2/CourseTest.java)
 
 ## 结构类图
 

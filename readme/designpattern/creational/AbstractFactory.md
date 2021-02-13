@@ -37,7 +37,7 @@
 ## 代码
 
 - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/abstractfactory)
-- [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/abstractfactory/CourseFactoryTest.java)
+- [测试](../../../src/test/java/cool/zzy/demo/designpattern/creational/abstractfactory/CourseFactoryTest.java)
 
 ## 结构类图
 ![AbstractFactory](../../../其他/designpattern/creational/AbstractFactory.png)

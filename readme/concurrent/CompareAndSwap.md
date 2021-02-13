@@ -1,12 +1,16 @@
 # 轻量级锁CAS
 - [对象布局](./ObjectLayout.md)
+- [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
+    - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
 - [流程图](../../其他/concurrent/cas流程图.png)
-- [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/CompareAndSwapTest.java)
+- [测试用例](../../src/test/java/cool/zzy/demo/concurrent/CompareAndSwapTest.java)
 - [锁优点和缺点图](../../其他/concurrent/锁的优点和缺点.png)
 
 锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁

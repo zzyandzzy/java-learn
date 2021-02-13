@@ -36,7 +36,7 @@
 ## 代码
 
 - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/factorymethod)
-- [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/factorymethod/VideoFactoryTest.java)
+- [测试](../../../src/test/java/cool/zzy/demo/designpattern/creational/factorymethod/VideoFactoryTest.java)
 
 ## 结构类图
 ![FactoryMethod](../../../其他/designpattern/creational/FactoryMethod.png)

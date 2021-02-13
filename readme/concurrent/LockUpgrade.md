@@ -3,10 +3,14 @@
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
+- [锁升级](./LockUpgrade.md)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
+    - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
 - [锁优点和缺点](../../其他/concurrent/锁的优点和缺点.png)
-- [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/ObjectLayoutTest.java)
+- [测试用例](../../src/test/java/cool/zzy/demo/concurrent/ObjectLayoutTest.java)
 
 锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
 锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率

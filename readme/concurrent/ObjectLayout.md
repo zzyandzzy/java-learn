@@ -1,13 +1,17 @@
 # 对象布局
+- [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
+    - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
 - [对象布局图](../../其他/concurrent/对象布局.png)
 - [MarkWord布局图](../../其他/concurrent/对象markword.png)
-- [测试用例](../../src/test/java/xyz/zzyitj/demo/concurrent/ObjectLayoutTest.java)
+- [测试用例](../../src/test/java/cool/zzy/demo/concurrent/ObjectLayoutTest.java)
 
 在`pom.xml`中导入
 ```xhtml

@@ -1,7 +1,7 @@
 # 资料
 
-- [HashMap源码](../../src/main/java/xyz/zzyitj/source/java/util/HashMap.java)
-- [测试用例](../../src/test/java/xyz/zzyitj/java/util/HashMapTest.java)
+- [HashMap源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/HashMap.java)
+- [测试用例](../../src/test/java/cool/zzy/java/util/HashMapTest.java)
 - [插入流程图](../../其他/util/HashMap/插入流程图.png)
   
 # 问题

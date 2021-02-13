@@ -24,25 +24,25 @@
 # util
 - Collection
   - List
-    - [ArrayList源码](./jdk11/src/java.base/share/classes/java/util/ArrayList.java)
-      - [测试用例](./src/test/java/xyz/zzyitj/java/util/ArrayListTest.java)
-    - [LinkedList源码](./jdk11/src/java.base/share/classes/java/util/LinkedList.java)
-      - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedListTest.java)
+    - [ArrayList源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/ArrayList.java)
+      - [测试用例](./src/test/java/cool/zzy/java/util/ArrayListTest.java)
+    - [LinkedList源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/LinkedList.java)
+      - [测试用例](./src/test/java/cool/zzy/java/util/LinkedListTest.java)
   - Set
-    - [HashSet源码](./jdk11/src/java.base/share/classes/java/util/HashSet.java)
-      - [测试用例](./src/test/java/xyz/zzyitj/java/util/HashSetTest.java)
-      - [LinkedHashSet源码](./jdk11/src/java.base/share/classes/java/util/LinkedHashSet.java)
-        - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedHashSetTest.java)
-    - [TreeSet源码](./jdk11/src/java.base/share/classes/java/util/TreeSet.java)
-      - [测试用例](./src/test/java/xyz/zzyitj/java/util/TreeSetTest.java)
+    - [HashSet源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/HashSet.java)
+      - [测试用例](./src/test/java/cool/zzy/java/util/HashSetTest.java)
+      - [LinkedHashSet源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/LinkedHashSet.java)
+        - [测试用例](./src/test/java/cool/zzy/java/util/LinkedHashSetTest.java)
+    - [TreeSet源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/TreeSet.java)
+      - [测试用例](./src/test/java/cool/zzy/java/util/TreeSetTest.java)
   
 - Map
   - [HshMap.md](./readme/util/HashMap.md)
-    - [LinkedHashMap源码](./jdk11/src/java.base/share/classes/java/util/LinkedHashMap.java)
-      - [测试用例](./src/test/java/xyz/zzyitj/java/util/LinkedHashMapTest.java)
+    - [LinkedHashMap源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/LinkedHashMap.java)
+      - [测试用例](./src/test/java/cool/zzy/java/util/LinkedHashMapTest.java)
       - [结构图](其他/util/LinkedHashMap/LinkedHashMap.png)
-  - [TreeMap源码](./jdk11/src/java.base/share/classes/java/util/TreeMap.java)
-    - [测试用例](./src/test/java/xyz/zzyitj/java/util/TreeMapTest.java)
+  - [TreeMap源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/TreeMap.java)
+    - [测试用例](./src/test/java/cool/zzy/java/util/TreeMapTest.java)
   
 ## concurrent
 
@@ -65,16 +65,16 @@
 - [虚](./readme/reference/Phantom.md)
 
 # lang
-- [String](./jdk11/src/java.base/share/classes/java/lang/String.java)
-- [StringBuffer](./jdk11/src/java.base/share/classes/java/lang/StringBuffer.java)
-- [StringBuilder](./jdk11/src/java.base/share/classes/java/lang/StringBuilder.java)
-- [Number](./jdk11/src/java.base/share/classes/java/lang/Number.java)
-  - [Integer](./jdk11/src/java.base/share/classes/java/lang/Integer.java)
-  - [Long](./jdk11/src/java.base/share/classes/java/lang/Long.java)
-  - [Float](./jdk11/src/java.base/share/classes/java/lang/Float.java)
-  - [Double](./jdk11/src/java.base/share/classes/java/lang/Double.java)
-  - [Byte](./jdk11/src/java.base/share/classes/java/lang/Byte.java)
-  - [Short](./jdk11/src/java.base/share/classes/java/lang/Short.java)
+- [String](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/String.java)
+- [StringBuffer](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/StringBuffer.java)
+- [StringBuilder](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/StringBuilder.java)
+- [Number](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Number.java)
+  - [Integer](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Integer.java)
+  - [Long](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Long.java)
+  - [Float](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Float.java)
+  - [Double](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Double.java)
+  - [Byte](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Byte.java)
+  - [Short](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/lang/Short.java)
   
 # LICENSE
     MIT License

@@ -1,6 +1,15 @@
 # ReentrantLock
 
-- [ReentrantLock](../../src/main/java/xyz/zzyitj/source/java/util/concurrent/locks/ReentrantLock.java)
+- [对象布局](./ObjectLayout.md)
+- [轻量级锁CAS](./CompareAndSwap.md)
+- [volatile关键字](./Volatile.md)
+- [synchronized关键字](./Synchronized.md)
+- [锁升级](./LockUpgrade.md)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
+    - [ReentrantLock](./ReentrantLock.md)
+
+- [ReentrantLock源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/concurrent/locks/ReentrantLock.java)
 
 可重入锁
 

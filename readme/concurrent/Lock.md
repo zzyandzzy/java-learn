@@ -4,8 +4,8 @@
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
-- [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
-- [locks](../../src/main/java/xyz/zzyitj/source/java/util/concurrent/locks)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
+- [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
   - [ReentrantLock](./ReentrantLock.md)
 
 # 其他
@@ -17,7 +17,7 @@
     线程是CPU进行资源分配和调度的最小单位。
 
 锁消除
-- [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
 ```java
     /**
      * 锁消除
@@ -29,7 +29,7 @@
 ```
 
 锁粗化
-- [测试](../../src/test/java/xyz/zzyitj/demo/concurrent/LockTest.java)
+- [测试](../../src/test/java/cool/zzy/demo/concurrent/LockTest.java)
 ```java
     /**
      * {@link LockTest#testLock2()}

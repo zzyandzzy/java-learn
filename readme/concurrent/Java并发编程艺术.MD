@@ -4,4 +4,4 @@
 
 ### 4.11 什么是线程
 
-- [MultiThread](../../src/test/java/xyz/zzyitj/demo/concurrent/MultiThreadTest.java)
+- [MultiThread](../../src/test/java/cool/zzy/demo/concurrent/MultiThreadTest.java)
