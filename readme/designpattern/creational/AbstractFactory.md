@@ -36,7 +36,7 @@
 
 ## 代码
 
-- [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/abstractfactory)
+- [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/abstractfactory)
 - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/abstractfactory/CourseFactoryTest.java)
 
 ## 结构类图
@@ -46,15 +46,17 @@
 ## JDK使用到的抽象工厂
 
 ```java
+import cool.zzy.demo.designpattern.creational.abstractfactory.CourseFactory;
+
 /**
-* {@link java.sql.Connection#createStatement()}}
-* 和
-* {@link java.sql.Connection#prepareStatement(java.lang.String)}}
-* 都属于同一个产品族，类似{@link xyz.zzyitj.demo.designpattern.creational.abstractfactory.CourseFactory}
-* 根据调用方法获取到不同对象
-* <p>
-* 还有一个{@link java.sql.Statement}
-*/
-public class Test{
+ * {@link java.sql.Connection#createStatement()}}
+ * 和
+ * {@link java.sql.Connection#prepareStatement(java.lang.String)}}
+ * 都属于同一个产品族，类似{@link CourseFactory}
+ * 根据调用方法获取到不同对象
+ * <p>
+ * 还有一个{@link java.sql.Statement}
+ */
+public class Test {
 }
 ```

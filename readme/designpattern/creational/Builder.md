@@ -31,11 +31,11 @@
 ## 代码
 
 - v1
-  - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/builder)
+  - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/builder)
   - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/builder/CourseBuilderTest.java)
 
 - v2
-  - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/creational/builder/v2)
+  - [代码](../../../src/main/java/cool/zzy/demo/designpattern/creational/builder/v2)
   - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/creational/builder/v2/CourseTest.java)
 
 ## 结构类图
@@ -47,12 +47,15 @@
 ## JDK使用到的Builder设计模式
 
 ```java
+import cool.zzy.demo.designpattern.creational.builder.CourseActualBuilder;
+import cool.zzy.demo.designpattern.creational.builder.CourseBuilder;
+
 /**
-* {@link AbstractStringBuilder} 就相当于
-* {@link xyz.zzyitj.demo.designpattern.creational.builder.CourseActualBuilder}
-* {@link StringBuilder} 和{@link StringBuffer} 就相当于
-* {@link xyz.zzyitj.demo.designpattern.creational.builder.CourseBuilder}
-*/
-public class Test{
+ * {@link AbstractStringBuilder} 就相当于
+ * {@link CourseActualBuilder}
+ * {@link StringBuilder} 和{@link StringBuffer} 就相当于
+ * {@link CourseBuilder}
+ */
+public class Test {
 }
 ```

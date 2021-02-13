@@ -12,4 +12,4 @@
 
 - [动画演示](../../../其他/algorithm/sort/BubbleSort.gif)
 
-- [实现](../../../src/main/java/xyz/zzyitj/demo/algorithm/sort/BubbleSort.java)
+- [实现](../../../src/main/java/cool/zzy/demo/algorithm/sort/BubbleSort.java)

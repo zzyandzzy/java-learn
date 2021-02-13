@@ -8,7 +8,7 @@
 ConcurrentHashMap无参数的构造方法并没有初始化，在put的时候才初始化。
 ```java
 /**
- * {@link xyz.zzyitj.java.util.concurrent.ConcurrentHashMapTest#testInit()}
+ * {@link ConcurrentHashMapTest#testInit()}
  */
 public class Test{
 }
@@ -17,7 +17,7 @@ public class Test{
 1个参数的构造方法只是设置了sizeCtl的大小，这里涉及到一个tableSizeFor的方法，原理是把int的二进制的0设置为1
 ```java
 /**
- * {@link xyz.zzyitj.java.util.concurrent.ConcurrentHashMapTest#testTableSizeFor()}
+ * {@link ConcurrentHashMapTest#testTableSizeFor()}
  */
 public class Test{
 }

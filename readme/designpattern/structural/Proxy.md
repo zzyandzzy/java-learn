@@ -40,12 +40,12 @@
 
 - 静态代理
   
-  - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/structural/proxy/staticproxy)
+  - [代码](../../../src/main/java/cool/zzy/demo/designpattern/structural/proxy/staticproxy)
   - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/structural/proxy/staticproxy)
 
 - 动态代理
 
-  - [代码](../../../src/main/java/xyz/zzyitj/demo/designpattern/structural/proxy/dynamic)
+  - [代码](../../../src/main/java/cool/zzy/demo/designpattern/structural/proxy/dynamic)
   - [测试](../../../src/test/java/xyz/zzyitj/demo/designpattern/structural/proxy/dynamic)
 
 ## 结构类图

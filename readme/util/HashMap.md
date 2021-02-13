@@ -134,7 +134,7 @@ public class Demo{
      * 为什么要先高16位异或低16位再取模运算?
      * hashmap这么做，只是为了降低hash冲突的几率。
      * hash 值的高位，没有参与数组下标计算，而是被掩码给掩盖掉了。
-     * 假如有一类 hash，特点是低位都是 0，高位才有变化。比如Float类，参考{@link xyz.zzyitj.java.util.HashMapTest#testHashCode()}
+     * 假如有一类 hash，特点是低位都是 0，高位才有变化。比如Float类，参考{@link HashMapTest#testHashCode()}
      * 例子，hashCode为：1954974080
      * 原hashCode： 0111 0100 1000 0110 1000 1001 1000 0000
      * 数组长度-1：  0000 0000 0000 0000 0000 0000 0000 1111

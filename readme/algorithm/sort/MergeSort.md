@@ -14,4 +14,4 @@
 
 - [动画演示](../../../其他/algorithm/sort/MergeSort.gif)
 
-- [实现](../../../src/main/java/xyz/zzyitj/demo/algorithm/sort/MergeSort.java)
+- [实现](../../../src/main/java/cool/zzy/demo/algorithm/sort/MergeSort.java)

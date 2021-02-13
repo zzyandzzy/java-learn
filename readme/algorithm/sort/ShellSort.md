@@ -10,4 +10,4 @@
 
 - [动画演示](../../../其他/algorithm/sort/ShellSort.gif)
 
-- [实现](../../../src/main/java/xyz/zzyitj/demo/algorithm/sort/ShellSort.java)
+- [实现](../../../src/main/java/cool/zzy/demo/algorithm/sort/ShellSort.java)

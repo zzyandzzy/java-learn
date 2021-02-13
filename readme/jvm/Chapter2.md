@@ -71,7 +71,7 @@
 # 2.3 HotSpot虚拟机对象探秘
 
 ## 2.3.1 对象的创建
-[对象的创建](../../src/main/java/xyz/zzyitj/demo/jvm/CreateObjectTest.java)
+[对象的创建](../../src/main/java/cool/zzy/demo/jvm/CreateObjectTest.java)
 
     当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，
     并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。
@@ -101,6 +101,6 @@
 jvisualvm
 ```
 命令工具分析内存映像
-[堆内存OOM](../../src/main/java/xyz/zzyitj/demo/jvm/HeapOOM.java)
+[堆内存OOM](../../src/main/java/cool/zzy/demo/jvm/HeapOOM.java)
 
     
