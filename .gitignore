@@ -15,4 +15,8 @@ target/
 out/
 .idea/
 .DS_Store
-jdk11/
+.gradle/
+gradlew
+gradlew.bat
+build/
+gradle/
