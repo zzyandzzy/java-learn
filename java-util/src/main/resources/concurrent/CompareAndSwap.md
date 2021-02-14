@@ -60,7 +60,7 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
 ```java
 // lock cmpxchg
 // cmpxchg 并不是原子性的，而是lock指令
-// lock指令在指cmpxchg指令在修改一块内存的值的时候另外的CPU不能修改这块内存的这个值
+// lock指令作用是：cmpxchg指令在修改一块内存的值的时候另外的线程不能修改这块内存的这个值
 ```
 补充知识：
 ```java

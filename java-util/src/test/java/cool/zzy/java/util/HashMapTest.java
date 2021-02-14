@@ -1,6 +1,5 @@
 package cool.zzy.java.util;
 
-
 import cool.zzy.datastructure.tree.RBTree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * xyz.zzyitj.java.util
  * <p>
  * 未解决疑问：
  * 1：为什么在插入的时候使用尾插法？

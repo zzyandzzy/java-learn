@@ -31,6 +31,8 @@
 
 ## [java.util](java-util/src/main/resources/README.md)
 
+## [java并发编程艺术](book-java-concurrent-art/src/main/resources/README.md)
+
 ## LICENSE
 
     MIT License
