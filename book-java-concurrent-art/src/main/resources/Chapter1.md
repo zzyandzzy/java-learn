@@ -1,6 +1,6 @@
 ## 1.1 上下文切换
 
-### [1.1.1 并发和串行比较](../../java/cool/zzy/java/concurrent/art/chapter1/Code111ConcurrentTest.java)
+### [1.1.1 并发和串行比较](../java/cool/zzy/java/concurrent/art/chapter1/Code111ConcurrentTest.java)
 
 ### 1.1.2 查看上下文切换次数
 
@@ -10,7 +10,7 @@ vmstat 1
 # cs就是上下文切换次数
 ```
 
-![vmstat命令](../images/chapter1/vmstat.png)
+![vmstat命令](images/chapter1/vmstat.png)
 
 可以看到1秒内上下文切换的速度是1000多次。
 
@@ -27,9 +27,9 @@ grep java.lang.Thread.State core.dump | awk '{print $2}' | sort | uniq -c
 vim core.dump
 ```
 
-![减少上下文切换实战](../images/chapter1/jstack.png)
+![减少上下文切换实战](images/chapter1/jstack.png)
 
-## [1.2 死锁](../../java/cool/zzy/java/concurrent/art/chapter1/Code12DeadLockDemo.java)
+## [1.2 死锁](../java/cool/zzy/java/concurrent/art/chapter1/Code12DeadLockDemo.java)
 
 当程序遇到了死锁的问题，我们只能通过`jstack`的dump查看是哪个线程引起了死锁，`jstack`比较智能，如果线程中有死锁，它会直接提示
 
