@@ -1,4 +1,5 @@
 # 对象布局
+
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
@@ -9,19 +10,19 @@
     - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
+
 - [对象布局图](../images/concurrent/对象布局.png)
 - [MarkWord布局图](../images/concurrent/对象markword.png)
 - [测试用例](../../../test/java/cool/zzy/java/util/concurrent/ObjectLayoutTest.java)
 
-在`pom.xml`中导入
-```xhtml
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-            <version>0.9</version>
-        </dependency>
+在`build.gradle`中导入
+
+```groovy
+implementation 'org.openjdk.jol:jol-core:0.9'
 ```
+
 # 分析
+
     对象内存布局分为对象头和实例数据(instance data)和填充数据。
     对象头分为markword、类型指针(class pointer)、(数组还有数组长度)
     其中在64位JVM中，markword占8个字节，类型指针如果开启压缩占4个字节，实例数据看情况
@@ -32,11 +33,15 @@
     数组长度占4个字节
 
 # 其他
+
 查看指针压缩开启情况
+
 ```shell script
 java -XX:+PrintCommandLineFlags -version
 ```
+
 打印
+
 ```
 -XX:InitialHeapSize=268435456 -XX:MaxHeapSize=4294967296 -XX:+PrintCommandLineFlags
 // 开启指针压缩，会把8个字节的指针压缩成4个字节 
@@ -50,7 +55,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.241-b07, mixed mode)
 ```
 
 JDK8偏向锁默认有时延，可用
+
 ```shell script
 -XX:BiasedLockingStartupDelay=0
 ```
+
 关闭时延

@@ -53,10 +53,29 @@ public class ObjectLayoutTest {
      */
     @Test
     public void testPrint() {
-        Object o = new Object();
+        final Object o = new Object();
+        System.out.println(Thread.currentThread());
+        // java.lang.Object object internals:
+        // OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
+        //      0     4        (object header)                           0d 00 00 00 (00001101 00000000 00000000 00000000) (13)
+        //      4     4        (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+        //      8     4        (object header)                           00 10 00 00 (00000000 00010000 00000000 00000000) (4096)
+        //     12     4        (loss due to the next object alignment)
+        //Instance size: 16 bytes
+        //Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
         // 获取了hashCode后的对象布局，仔细观察
-        o.hashCode();
+        // 1214626244
+        int hashCode = o.hashCode();
+        System.out.println(hashCode);
+        // java.lang.Object object internals:
+        // OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
+        //      0     4        (object header)                           09 c4 b9 65 (00001001 11000100 10111001 01100101) (1706673161)
+        //      4     4        (object header)                           48 00 00 00 (00011010 00000000 00000000 00000000) (26)
+        //      8     4        (object header)                           00 10 00 00 (00000000 00010000 00000000 00000000) (4096)
+        //     12     4        (loss due to the next object alignment)
+        //Instance size: 16 bytes
+        //Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
     }
 
@@ -66,6 +85,15 @@ public class ObjectLayoutTest {
     @Test
     public void testPrintArray() {
         Object[] oArray = new Object[16];
+        // [Ljava.lang.Object; object internals:
+        // OFFSET  SIZE               TYPE DESCRIPTION                               VALUE
+        //      0     4                    (object header)                           09 00 00 00 (00001001 00000000 00000000 00000000) (9)
+        //      4     4                    (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+        //      8     4                    (object header)                           08 3f 01 00 (00001000 00111111 00000001 00000000) (81672)
+        //     12     4                    (object header)                           10 00 00 00 (00010000 00000000 00000000 00000000) (16)
+        //     16    64   java.lang.Object Object;.<elements>                        N/A
+        //Instance size: 80 bytes
+        //Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
         System.out.println(ClassLayout.parseInstance(oArray).toPrintable());
     }
 }

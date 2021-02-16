@@ -1,4 +1,5 @@
 # synchronized关键字
+
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
@@ -8,8 +9,7 @@
 - [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
     - [ReentrantLock](./ReentrantLock.md)
 
-锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
-锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
+锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁 锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
 
 synchronized可能升级为重量级锁
 
@@ -22,8 +22,15 @@ synchronized可能升级为重量级锁
     偏向锁和轻量级锁，
     它们的引入是为了解决，
     在没有多线程竞争或基本没有竞争的场景下因使用传统锁机制带来的性能开销问题。
-    
+
+Java中的每一个对象都 可以作为锁。具体表现为以下3种形式。
+
+- 对于普通同步方法，锁是当前实例对象。
+- 对于静态同步方法，锁是当前类的Class对象。
+- 对于同步方法块，锁是synchronized括号里配置的对象。
+
 # 实现
+
 Java层
 
     加了synchronized关键字就是在编译的.class中代码块开头加monitorenter标识
@@ -31,21 +38,21 @@ Java层
     编译的时候会自动加上
 
 JVM层
-    
+
 加上synchronized关键字的方法或对象的锁会在执行过程中自动升级（参照[锁升级](./LockUpgrade.md)）
-    
+
 汇编层
+
 ```java
 // 在底层实现是用
 // lock cmpxchg
 // 指令
 ```
+
 参照[轻量级锁CAS](./CompareAndSwap.md)
 
 # synchronized VS CAS
 
-在高可用，高耗时的环境下，synchronized效率更高
-在低可用，低耗时的环境下，cas效率更高
+在高可用，高耗时的环境下，synchronized效率更高 在低可用，低耗时的环境下，cas效率更高
 
-synchronized升级到重量级锁后会进入一个等待队列（不消耗CPU）
-CAS在等待期间是消耗CPU的
+synchronized升级到重量级锁后会进入一个等待队列（不消耗CPU） CAS在等待期间是消耗CPU的

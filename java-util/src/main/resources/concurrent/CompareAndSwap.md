@@ -1,4 +1,5 @@
 # 轻量级锁CAS
+
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
@@ -9,12 +10,12 @@
     - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
+
 - [流程图](../images/concurrent/cas流程图.png)
 - [测试用例](../../../test/java/cool/zzy/java/util/concurrent/CompareAndSwapTest.java)
 - [锁优点和缺点图](../images/concurrent/锁的优点和缺点.png)
 
-锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
-锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
+锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁 锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
 
 CAS自旋锁(乐观锁)是轻量级锁
 
@@ -30,13 +31,17 @@ CAS可能产生`ABA`问题
     3.进行CAS操作，如果成功则跳出循环，如果失败则重复上述步骤。
 
 # 实现
+
 JDK层面：
+
 ```java
 /**
  *{@link sun.misc.Unsafe#compareAndSwapObject(Object, long, Object, Object)}
  */
 ```
+
 JVM层面：
+
 ```c
 UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, jobject obj, jlong offset, jint e, jint x))
   UnsafeWrapper("Unsafe_CompareAndSwapInt");
@@ -45,6 +50,7 @@ UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, job
   return (jint)(Atomic::cmpxchg(x, addr, e)) == e;
 UNSAFE_END
 ```
+
 ```c
 inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) {
   int mp = os::is_MP();
@@ -56,13 +62,17 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
   return exchange_value;
 }
 ```
+
 所以最终的实现就是
+
 ```java
 // lock cmpxchg
 // cmpxchg 并不是原子性的，而是lock指令
 // lock指令作用是：cmpxchg指令在修改一块内存的值的时候另外的线程不能修改这块内存的这个值
 ```
+
 补充知识：
+
 ```java
 // LOCK指令前缀只能用于以下这些指令：
 // ADD, ADC, AND, BTC, BTR, BTS, CMPXCHG
@@ -75,7 +85,9 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
 // 2、lock后的写操作会回写已修改的数据，同时让其它CPU相关缓存行失效，从而重新从主存中加载最新的数据
 // 3、不是内存屏障却能完成类似内存屏障的功能，阻止屏障两遍的指令重排序
 ```
+
 硬件层面
+
 ```java
 // lock指令在执行后面指令的时候会锁定一个北桥信号，不采用锁总线的方式
 ```
@@ -86,11 +98,9 @@ inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     
     1、CPU开销较大，多线程反复尝试更新某一个变量的时候容易出现；
     2、不能保证代码块的原子性，只能保证变量的原子性操作；
     3、ABA问题。
-    
+
 # synchronized VS CAS
 
-在高可用，高耗时的环境下，synchronized效率更高
-在低可用，低耗时的环境下，cas效率更高
+在高可用，高耗时的环境下，synchronized效率更高 在低可用，低耗时的环境下，cas效率更高
 
-synchronized升级到重量级锁后会进入一个等待队列（不消耗CPU）
-CAS在等待期间是消耗CPU的
+synchronized升级到重量级锁后会进入一个等待队列（不消耗CPU） CAS在等待期间是消耗CPU的
