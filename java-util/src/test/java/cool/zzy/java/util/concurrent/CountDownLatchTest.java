@@ -1,6 +1,6 @@
 package cool.zzy.java.util.concurrent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

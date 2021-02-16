@@ -1,7 +1,7 @@
 package cool.zzy.java.util;
 
-import cool.zzy.demo.datastructure.tree.RBTree;
-import org.junit.Test;
+import cool.zzy.datastructure.tree.RBTree;
+import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 import java.util.Set;

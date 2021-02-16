@@ -1,7 +1,7 @@
 package cool.zzy.java.util;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 public class LinkedListTest {
     List<String> list;
 
-    @Before
+    @BeforeEach
     public void init() {
         list = new LinkedList<>();
     }

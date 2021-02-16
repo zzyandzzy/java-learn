@@ -1,7 +1,7 @@
 package cool.zzy.java.util;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ public class LinkedHashMapTest {
     Map<String, String> map;
     Map<String, String> map1;
 
-    @Before
+    @BeforeEach
     public void init() {
         map = new LinkedHashMap<>();
         map1 = new LinkedHashMap<>(16, 0.75F, true);

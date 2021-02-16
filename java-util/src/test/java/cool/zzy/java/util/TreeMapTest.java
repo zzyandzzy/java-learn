@@ -1,8 +1,7 @@
 package cool.zzy.java.util;
 
-import cool.zzy.demo.datastructure.tree.RBTree;
-import cool.zzy.demo.datastructure.tree.RBTreeTest;
-import org.junit.Test;
+import cool.zzy.datastructure.tree.RBTree;
+import org.junit.jupiter.api.Test;
 
 /**
  * xyz.zzyitj
@@ -14,7 +13,6 @@ import org.junit.Test;
 public class TreeMapTest {
     /**
      * TreeMap的底层实现就是红黑树，参考
-     * {@link RBTreeTest} 测试用例
      * {@link RBTree} 源码带详细注释
      * {@link RBTree#putVal(RBTree.RBTNode)} 插入节点
      * {@link RBTree#putValFixUp(RBTree.RBTNode)} 插入节点后修复红黑树

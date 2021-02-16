@@ -1,6 +1,6 @@
 package cool.zzy.java.util.concurrent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +33,6 @@ public class VolatileTest {
         isRun = false;
     }
 
-
     private static int a = 0, b = 0;
     private static int x = 0, y = 0;
 
@@ -42,7 +41,7 @@ public class VolatileTest {
      * 运行结果：
      * 第 374602 次执行!
      *
-     * @throws InterruptedException
+     * @throws InterruptedException 线程异常
      */
     @Test
     public void test2() throws InterruptedException {
@@ -72,8 +71,8 @@ public class VolatileTest {
             Thread other = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    b = 1; // b = 1
-                    y = a; // y = 1
+                    b = 1;
+                    y = a;
                 }
             });
             one.start();
