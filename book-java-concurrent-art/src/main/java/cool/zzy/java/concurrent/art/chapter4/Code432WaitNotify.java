@@ -1,4 +1,4 @@
-package cool.zzy.java.util.concurrent.chapter4;
+package cool.zzy.java.concurrent.art.chapter4;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/6/19 8:32 下午
  * @since 1.0
  */
-public class Solution432 {
+public class Code432WaitNotify {
     static boolean flag = true;
     static Object lock = new Object();
 

@@ -1,6 +1,4 @@
-package cool.zzy.java.util.concurrent.chapter4;
-
-import org.junit.jupiter.api.Test;
+package cool.zzy.java.concurrent.art.chapter4;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
@@ -14,7 +12,7 @@ import java.lang.management.ThreadMXBean;
  * @date 2020/6/12 11:30 上午
  * @since 1.0
  */
-public class Solution411 {
+public class Code411MultiThread {
 
     /**
      * 4-1
@@ -23,8 +21,7 @@ public class Solution411 {
      * [2] Reference Handler 清除Reference的线程
      * [1] main main线程，用户程序入口
      */
-    @Test
-    public void test() {
+    public static void main(String[] args) {
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
         ThreadInfo[] threadInfoArray = threadMXBean.dumpAllThreads(false, false);
         for (ThreadInfo threadInfo : threadInfoArray) {

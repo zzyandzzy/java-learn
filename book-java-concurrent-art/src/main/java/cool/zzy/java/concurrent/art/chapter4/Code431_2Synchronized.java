@@ -1,4 +1,4 @@
-package cool.zzy.java.util.concurrent.chapter4;
+package cool.zzy.java.concurrent.art.chapter4;
 
 /**
  * xyz.zzyitj.demo.concurrent.art.chapter4
@@ -9,7 +9,7 @@ package cool.zzy.java.util.concurrent.chapter4;
  * @date 2020/6/19 8:14 下午
  * @since 1.0
  */
-public class Solution431_2 {
+public class Code431_2Synchronized {
     /**
      * 书中打码4-10
      * 使用：javac Solution431_2.java 编译文件
@@ -18,7 +18,7 @@ public class Solution431_2 {
      * @param args
      */
     public static void main(String[] args) {
-        synchronized (Solution431_2.class) {
+        synchronized (Code431_2Synchronized.class) {
         }
         m();
     }

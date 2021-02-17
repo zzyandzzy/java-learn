@@ -1,6 +1,4 @@
-package cool.zzy.java.util.concurrent.chapter4;
-
-import org.junit.jupiter.api.Test;
+package cool.zzy.java.concurrent.art.chapter4;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -13,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * @date 2020/6/19 8:02 下午
  * @since 1.0
  */
-public class Solution431 {
+public class Code431Synchronized {
     // 线程停止的标志，没有加volatile线程永远不会停止，加了volatile线程才会停止
     private static boolean isThreadStop = false;
 
@@ -26,8 +24,7 @@ public class Solution431 {
      * 即线程缓存变量过期，获取变量要从主内存获取
      * 修改变量要刷新到主内存
      */
-    @Test
-    public void volatileTest() {
+    public static void main(String[] args) {
         CountDownLatch countDownLatch = new CountDownLatch(2);
         new Thread(() -> {
             while (!isThreadStop) {
