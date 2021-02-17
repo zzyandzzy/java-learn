@@ -66,3 +66,5 @@ cache line的状态有4个：
 > [Java并发编程的艺术]()
 
 > [【并发编程】MESI--CPU缓存一致性协议](https://www.cnblogs.com/z00377750/p/9180644.html)
+
+> [MESI协议 - Wiki](https://zh.wikipedia.org/wiki/MESI%E5%8D%8F%E8%AE%AE)
