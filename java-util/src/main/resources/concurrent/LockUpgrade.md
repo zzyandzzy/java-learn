@@ -1,19 +1,20 @@
 # 锁升级过程
+
 - [对象布局](./ObjectLayout.md)
 - [轻量级锁CAS](./CompareAndSwap.md)
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
-- [测试](../../../test/java/cool/zzy/java/util/concurrent/LockTest.java)
 - [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
-    - [ReentrantLock](./ReentrantLock.md)
+  - [AQS](./AQS.md)
+  - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
+
 - [锁优点和缺点](../images/concurrent/锁的优点和缺点.png)
 - [测试用例](../../../test/java/cool/zzy/java/util/concurrent/ObjectLayoutTest.java)
 
-锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁
-锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
+锁的级别分为：无锁 --- 偏向锁 --- 轻量级锁 --- 重量级锁 锁只能升级但不能降级（GC除外），这种只能升级不能降级的策略是为了提高获得锁和释放锁的效率
 
 # 偏向锁
 
@@ -27,6 +28,7 @@
     如果设置了,则尝试使用CAS将对象头的偏向锁指向当前线程。
 
 # 轻量级锁（CAS）
+
 [CAS](./CompareAndSwap.md)
 
     线程在执行同步块之前，JVM会先在当前线程的栈帧中创建用于存储锁记录的空间，
@@ -39,7 +41,7 @@
     轻量级锁解锁时，会使用CAS操作将Displaced Mark Word替换回到对象头，
     如果成功，表示没有竞争发生。
     如果失败，表示当前锁存在竞争，锁已经被升级为重量级锁，则会释放锁并唤醒等待的线程。
-    
+
 # 重量级锁(synchronized)
 
 重量级锁是用户态和内核态的切换，所以比较慢
@@ -51,11 +53,13 @@
     偏向锁和轻量级锁，
     它们的引入是为了解决，
     在没有多线程竞争或基本没有竞争的场景下因使用传统锁机制带来的性能开销问题。
-    
+
 # 其他
 
 JDK8偏向锁默认有时延，可用
+
 ```shell script
 -XX:BiasedLockingStartupDelay=0
 ```
+
 关闭时延

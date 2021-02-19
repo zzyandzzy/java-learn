@@ -5,9 +5,9 @@
 - [volatile关键字](./Volatile.md)
 - [synchronized关键字](./Synchronized.md)
 - [锁升级](./LockUpgrade.md)
-- [测试](../../../test/java/cool/zzy/java/util/concurrent/LockTest.java)
 - [locks](../../src/main/java/cool/zzy/source/java/util/concurrent/locks)
-    - [ReentrantLock](./ReentrantLock.md)
+  - [AQS](./AQS.md)
+  - [ReentrantLock](./ReentrantLock.md)
 
 # 资料
 

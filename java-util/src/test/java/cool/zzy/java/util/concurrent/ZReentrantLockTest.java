@@ -1,5 +1,6 @@
 package cool.zzy.java.util.concurrent;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -8,12 +9,17 @@ import org.junit.jupiter.api.Test;
  * @since 1.0
  */
 class ZReentrantLockTest {
+    private ZReentrantLock reentrantLock;
     int a = 0;
     int b = 0;
 
+    @BeforeEach
+    void before() {
+        reentrantLock = new ZReentrantLock();
+    }
+
     @Test
     void lock() throws InterruptedException {
-        ZReentrantLock reentrantLock = new ZReentrantLock();
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
                 reentrantLock.lock();
