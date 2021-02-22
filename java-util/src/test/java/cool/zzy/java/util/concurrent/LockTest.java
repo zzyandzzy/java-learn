@@ -32,7 +32,7 @@ public class LockTest {
     public void testLock2() {
         int i = 0;
         StringBuffer stringBuffer = new StringBuffer();
-        while (i < 100){
+        while (i < 100) {
             stringBuffer.append(i);
             i++;
         }
