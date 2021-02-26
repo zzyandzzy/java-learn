@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 /**
- * xyz.zzyitj.java.util
  * <p>
  * ArrayList 的插入删除一定慢么？
  * 取决于你删除的元素离数组末端有多远，ArrayList拿来作为堆栈来用还是挺合适的，push和pop操作完全不涉及数据移动操作。
@@ -135,11 +134,21 @@ public class ArrayListTest {
          *                 list.remove(i);
          *             }
          *         }
+         *         或用迭代器
+         *         Iterator<String> iterator = list.iterator();
+         *         while (iterator.hasNext()){
+         *             if (iterator.next().length() == 4){
+         *                 iterator.remove();
+         *             }
+         *         }
          */
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).length() == 4) {
                 list.remove(i);
             }
+        }
+        for (String s : list) {
+            System.out.println("element : " + s);
         }
         /**
          * 下面的代码报ConcurrentModificationException
@@ -160,8 +169,5 @@ public class ArrayListTest {
          *             }
          *         }
          */
-        for (String s : list) {
-            System.out.println("element : " + s);
-        }
     }
 }
