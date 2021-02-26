@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * xyz.zzyitj.java.util
  * <p>
  * {@link TreeSet}底层是{@link java.util.TreeMap}也就是红黑树
  * 具体实现加注解:

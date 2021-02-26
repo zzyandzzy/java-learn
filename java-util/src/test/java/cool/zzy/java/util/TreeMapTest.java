@@ -3,14 +3,16 @@ package cool.zzy.java.util;
 import cool.zzy.datastructure.tree.RBTree;
 import org.junit.jupiter.api.Test;
 
+import java.util.TreeMap;
+
 /**
- * xyz.zzyitj
- *
  * @author intent zzy.main@gmail.com
  * @date 2020/3/29 9:09 下午
  * @since 1.0
  */
 public class TreeMapTest {
+    private TreeMap<String, String> map;
+
     /**
      * TreeMap的底层实现就是红黑树，参考
      * {@link RBTree} 源码带详细注释

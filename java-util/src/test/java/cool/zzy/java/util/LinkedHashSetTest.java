@@ -8,7 +8,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * xyz.zzyitj.java.util
  * {@link LinkedHashSet}继承{@link HashSet}
  * HashSet在内部专门为LinkedHashSet写了一个构造方法{@link HashSet#HashSet(int, float, boolean)}
  * 从而初始化map的时候指定初始化为{@link java.util.LinkedHashMap}

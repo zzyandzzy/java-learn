@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * xyz.zzyitj.java.util
  * {@link HashSet}就是在内部使用了HashMap
  * {@link HashSet#add(Object)}方法就是使用了map的add方法，值为{@link HashSet#PRESENT}
  * 而{@link java.util.LinkedHashSet}是继承HashSet的，HashSet专门为LinkedHashSet预留了一个构造方法
@@ -23,7 +22,7 @@ public class HashSetTest {
 
     /**
      * 仅仅是为了测试HashSet的无序性
-     * 有序的{@link java.util.LinkedHashSet}请看{@link java.util.LinkedHashSet#test()}
+     * 有序的{@link java.util.LinkedHashSet}请看{@link LinkedHashSetTest#test()}
      */
     @Test
     public void test() {

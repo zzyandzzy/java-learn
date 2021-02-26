@@ -7,8 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * xyz.zzyitj.java.util
- *
  * @author intent zzy.main@gmail.com
  * @date 2020/3/29 8:20 下午
  * @since 1.0

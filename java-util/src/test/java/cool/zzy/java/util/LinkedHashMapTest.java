@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 /**
- * xyz.zzyitj.java.util
  * <p>
  * {@link LinkedHashMap.Entry}比{@link HashMap.Node}多了after和before节点
  * 并且在LinkedHashMap内部维护了一个双向链表{@link LinkedHashMap#head}头结点{@link LinkedHashMap#tail}尾节点

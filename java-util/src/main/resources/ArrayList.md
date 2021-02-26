@@ -3,6 +3,8 @@
 - [ArrayList源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/ArrayList.java)
 - [测试用例](../../test/java/cool/zzy/java/util/ArrayListTest.java)
 
+![ArrayList类图](./images/ArrayList/arraylist_class_diagram.png)
+
 # 问题
 
 ## ArrayList的默认数组大小为什么是10？

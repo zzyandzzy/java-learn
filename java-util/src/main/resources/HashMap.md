@@ -3,6 +3,8 @@
 - [HashMap源码](https://github.com/zzyandzzy/jdk11/blob/main/src/java.base/share/classes/java/util/HashMap.java)
 - [测试用例](../../test/java/cool/zzy/java/util/HashMapTest.java)
 
+![HashMap类图](./images/HashMap/hashmap_class_diagram.png)
+
 # 问题
 
 ## 构造器
