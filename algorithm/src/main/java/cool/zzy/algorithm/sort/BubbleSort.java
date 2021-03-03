@@ -11,6 +11,15 @@ public class BubbleSort extends SortImpl {
         bubbleSort.printSortArray();
     }
 
+    /**
+     * 最好时间复杂度：O(n^2)
+     * 最坏时间复杂度：O(n^2)
+     * 平均时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
+     *
+     * @param array 待排序数组
+     * @return 排序好的数组
+     */
     @Override
     public int[] sort(int[] array) {
         for (int i = 0; i < array.length; i++) {

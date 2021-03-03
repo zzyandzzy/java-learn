@@ -12,6 +12,6 @@
 
     - 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
 
-- [动画演示](../images/sort/InsertSort.gif)
+![动画演示](../images/sort/InsertSort.gif)
 
 - [实现](../../java/cool/zzy/algorithm/sort/InsertSort.java)

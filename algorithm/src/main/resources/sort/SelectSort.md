@@ -14,6 +14,6 @@
 
     - 重复第二步，直到所有元素均排序完毕。
 
-- [动画演示](../images/sort/SelectionSort.gif)
+![动画演示](../images/sort/SelectionSort.gif)
 
 - [实现](../../java/cool/zzy/algorithm/sort/SelectSort.java)

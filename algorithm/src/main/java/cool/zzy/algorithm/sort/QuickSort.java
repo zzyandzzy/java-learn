@@ -11,6 +11,15 @@ public class QuickSort extends SortImpl {
         quickSort.printSortArray();
     }
 
+    /**
+     * 最好时间复杂度：O(nlogn)
+     * 最坏时间复杂度：O(n^2)
+     * 平均时间复杂度：O(nlogn)
+     * 空间复杂度：O(logn)
+     *
+     * @param array 待排序数组
+     * @return 排序好的数组
+     */
     @Override
     public int[] sort(int[] array) {
         quickSort(array, 0, array.length - 1);
@@ -21,14 +30,17 @@ public class QuickSort extends SortImpl {
         if (array == null || array.length == 0 || left > right) {
             return;
         }
-        int key = array[left];
+        // 选取基准值
+        int pivot = array[left];
         int i = left;
         int j = right;
         while (i != j) {
-            while (array[j] >= key && i < j) {
+            // 在右边找到比基准值小的元素
+            while (array[j] >= pivot && i < j) {
                 j--;
             }
-            while (array[i] <= key && i < j) {
+            // 在左边找到比基准值大的元素
+            while (array[i] <= pivot && i < j) {
                 i++;
             }
             if (i < j) {
@@ -38,7 +50,7 @@ public class QuickSort extends SortImpl {
             }
         }
         array[left] = array[i];
-        array[i] = key;
+        array[i] = pivot;
         quickSort(array, left, i - 1);
         quickSort(array, i + 1, right);
     }

@@ -11,20 +11,31 @@ public class SelectSort extends SortImpl {
         selectSort.printSortArray();
     }
 
+    /**
+     * 最好时间复杂度：O(n^2)
+     * 最坏时间复杂度：O(n^2)
+     * 平均时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
+     *
+     * @param array 待排序数组
+     * @return 排序好的数组
+     */
     @Override
     public int[] sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            // 当前的指针
-            int currentIndex = i;
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[currentIndex]) {
-                    currentIndex = j;
+            // 保存最小指针
+            int minIndex = i;
+            // 循环从之后的数组找到最小值
+            for (int j = i; j < array.length; j++) {
+                if (array[minIndex] > array[j]) {
+                    minIndex = j;
                 }
             }
-            if (i != currentIndex) {
+            // 交换最小值
+            if (i != minIndex) {
                 int temp = array[i];
-                array[i] = array[currentIndex];
-                array[currentIndex] = temp;
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
             }
         }
         return array;

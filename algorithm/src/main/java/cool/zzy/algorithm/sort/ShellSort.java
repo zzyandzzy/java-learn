@@ -11,6 +11,15 @@ public class ShellSort extends SortImpl {
         shellSort.printSortArray();
     }
 
+    /**
+     * 最好时间复杂度：O(nlog^2n)
+     * 最坏时间复杂度：O(nlog^2n)
+     * 平均时间复杂度：O(nlogn)
+     * 空间复杂度：O(1)
+     *
+     * @param array 待排序数组
+     * @return 排序好的数组
+     */
     @Override
     public int[] sort(int[] array) {
         int gap = 1;
@@ -27,7 +36,7 @@ public class ShellSort extends SortImpl {
                 }
                 array[j + gap] = tmp;
             }
-            gap = (int) Math.floor(gap / 3);
+            gap = (int) Math.floor(gap / 3.0);
         }
         return array;
     }

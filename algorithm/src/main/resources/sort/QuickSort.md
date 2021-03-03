@@ -8,6 +8,6 @@
 
     - 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
 
-- [动画演示](../images/sort/QuickSort.gif)
+![动画演示](../images/sort/QuickSort.gif)
 
 - [实现](../../java/cool/zzy/algorithm/sort/QuickSort.java)

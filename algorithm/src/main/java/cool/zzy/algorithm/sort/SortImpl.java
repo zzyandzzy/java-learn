@@ -35,7 +35,7 @@ public abstract class SortImpl implements Sort {
         if (isSort) {
             System.out.println("排序正确");
         } else {
-            System.out.println("排序错误");
+            System.err.println("排序错误");
         }
     }
 

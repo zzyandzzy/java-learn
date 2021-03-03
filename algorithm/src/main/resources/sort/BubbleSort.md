@@ -10,6 +10,6 @@
 
     - 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 
-- [动画演示](../images/sort/BubbleSort.gif)
+![动画演示](../images/sort/BubbleSort.gif)
 
 - [实现](../../java/cool/zzy/algorithm/sort/BubbleSort.java)

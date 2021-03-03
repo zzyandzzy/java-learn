@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * xyz.zzyitj.demo.reference
  * 虚引用，管理堆外内存，NIO
  *
  * @author intent zzy.main@gmail.com
@@ -17,10 +16,10 @@ import java.util.List;
 public class PhantomReferenceTest {
 
     private static final List<byte[]> LIST = new ArrayList<>();
-    private static final ReferenceQueue<cool.zzy.demo.reference.M> QUEUE = new ReferenceQueue<>();
+    private static final ReferenceQueue<M> QUEUE = new ReferenceQueue<>();
 
     public static void main(String[] args) {
-        PhantomReference<cool.zzy.demo.reference.M> phantomReference = new PhantomReference<>(new cool.zzy.demo.reference.M(), QUEUE);
+        PhantomReference<M> phantomReference = new PhantomReference<>(new M(), QUEUE);
         new Thread(() -> {
             while (true) {
                 LIST.add(new byte[1024 * 1024]);
@@ -35,7 +34,7 @@ public class PhantomReferenceTest {
         }).start();
         new Thread(() -> {
             while (true) {
-                Reference<? extends cool.zzy.demo.reference.M> poll = QUEUE.poll();
+                Reference<? extends M> poll = QUEUE.poll();
                 if (poll == null) {
                     System.out.println("虚引用对象被JVM回收了: " + poll);
                 }

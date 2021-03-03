@@ -12,6 +12,6 @@
 
     - 将另一序列剩下的所有元素直接复制到合并序列尾。
 
-- [动画演示](../images/sort/MergeSort.gif)
+![动画演示](../images/sort/MergeSort.gif)
 
 - [实现](../../java/cool/zzy/algorithm/sort/MergeSort.java)

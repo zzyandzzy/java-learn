@@ -3,7 +3,6 @@ package cool.zzy.java.lang.ref;
 import java.lang.ref.SoftReference;
 
 /**
- * xyz.zzyitj.demo.reference
  * VM Options：-Xmx20m
  * 软引用，主要用于缓存
  *

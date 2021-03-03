@@ -3,7 +3,6 @@ package cool.zzy.java.lang.ref;
 import java.lang.ref.WeakReference;
 
 /**
- * xyz.zzyitj.demo.reference
  * 弱引用
  * 垃圾回收器一看到弱引用就回收了，不管有没有对象指向它（弱引用）
  * <p>

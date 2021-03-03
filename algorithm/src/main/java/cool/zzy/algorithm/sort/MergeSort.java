@@ -13,6 +13,15 @@ public class MergeSort extends SortImpl {
         mergeSort.printSortArray();
     }
 
+    /**
+     * 最好时间复杂度：O(nlogn)
+     * 最坏时间复杂度：O(nlogn)
+     * 平均时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)
+     *
+     * @param array 待排序数组
+     * @return 排序好的数组
+     */
     @Override
     public int[] sort(int[] array) {
         if (array.length < 2) {
