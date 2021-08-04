@@ -10,7 +10,7 @@
   git clone clone https://github.com/zzyandzzy/openjdk-jdk11u.git --depth 1
   ```
 
-- 第二步：编译本项目所需jdk，参考[jdk11的README](https://github.com/zzyandzzy/openjdk-jdk11u/blob/main/README.md)
+- 第二步：编译本项目所需jdk，参考[jdk11的README](https://github.com/zzyandzzy/openjdk-jdk11u/blob/master/README.md)
 
 - 第三步：IDEA打开本项目，新建JDK，选择编译好的jdk，如：`jdk11/build/xxx/images/jdk`，IDEA选择完JDK后Sourcepath选择`jdk11/src`目录
 
