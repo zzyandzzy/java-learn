@@ -7,18 +7,16 @@
   # 克隆本项目
   git clone clone https://github.com/zzyandzzy/java-learn.git --depth 1
   # 克隆本项目调试所需jdk源码
-  git clone clone https://github.com/zzyandzzy/jdk11.git --depth 1
+  git clone clone https://github.com/zzyandzzy/openjdk-jdk11u.git --depth 1
   ```
 
-- 第二步：编译本项目所需jdk，参考[jdk11的README](https://github.com/zzyandzzy/jdk11/blob/main/README.md)
+- 第二步：编译本项目所需jdk，参考[jdk11的README](https://github.com/zzyandzzy/openjdk-jdk11u/blob/main/README.md)
 
 - 第三步：IDEA打开本项目，新建JDK，选择编译好的jdk，如：`jdk11/build/xxx/images/jdk`，IDEA选择完JDK后Sourcepath选择`jdk11/src`目录
 
 - 第四步：IDEA设置本项目的SDK为上面选择的JDK，然后开始愉快的调试吧~~~
 
-`注意一`：当你改变了jdk11里面的源码的时候（如多加了一行），就需要重新编译jdk11的源码
-
-`注意二`：jdk11源码的默认字符集为ascii，如果你加了中文，会导致编译不通过（正在寻求解决方法！！！）
+`注意一`：当你改变了jdk11里面的源码的时候（如多加了一行），就需要用`make jdk`重新编译jdk11的源码，IDEA Debug才不错位
 
 ## [算法](algorithm/src/main/resources/README.md)
 
